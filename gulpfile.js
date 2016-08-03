@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    px3rem = require('gulp-px3rem'),
     babel = require('gulp-babel'),
     uglify = require('gulp-uglify'),
     less = require('gulp-less'),
