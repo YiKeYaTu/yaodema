@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script>!function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=a.navigator.userAgent,q=(!!p.match(/android/gi),!!p.match(/iphone/gi)),r=q&&!!p.match(/OS 9_3/),s=a.devicePixelRatio;i=q&&!r?s>=3&&(!i||i>=3)?3:s>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var t=e.createElement("div");t.appendChild(g),e.write(t.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));</script>
+    <title>大重庆</title>
+    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+</head>
+<body>
+    <header>
+        <section class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"></div>
+                <div class="swiper-slide" style="left: 100%"></div>
+                <div class="swiper-slide" style="left: 200%"></div>
+                <div class="swiper-slide" style="left: 300%"></div>
+                <div class="swiper-slide" style="left: 400%"></div>
+            </div>
+        </section>
+        <section class='banner-bottom'></section>
+    </header>
+    <section class='hot-item-inf'>
+        <div style="margin-left: 0;" class="hot-item-inf-item">辣椒</div>
+        <div class="hot-item-inf-item">火锅</div>
+        <div class="hot-item-inf-item">辣椒</div>
+        <div style="margin-left: 0;" class="hot-item-inf-item">辣椒</div>
+        <div class="hot-item-inf-item">辣椒</div>
+        <div class="hot-item-inf-item">辣椒</div>
+    </section>
+    <section class='line'></section>
+    <section class='item-outer'>
+        <section class='item-title'>
+            <p class='item-title-container'>最热商品</p>
+        </section>
+        <section class='item-container'>
+            <div class="item-el">
+                <div class="item-image"></div>
+                <div class="item-inf">
+                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                </div>
+                <div class="buy-item">
+                    <div class="item-price">
+                    <span class='item-price-icon'>￥</span>
+                    <span class='item-price-content'>1000</span>
+                    <img class='buy-button' src='../imgs/buy_car_b.png'>
+                    </div>
+                </div>
+            </div>
+            <div class="item-el">
+                <div class="item-image"></div>
+                <div class="item-inf">
+                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                </div>
+                <div class="buy-item">
+                    <div class="item-price">
+                    <span class='item-price-icon'>￥</span>
+                    <span class='item-price-content'>1000</span>
+                    <img class='buy-button' src='../imgs/buy_car_b.png'>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class='item-outer'>
+        <section class='item-title'>
+            <p class='item-title-container'>最热商品</p>
+        </section>
+        <section class='item-container'>
+            <div class="item-el">
+                <div class="item-image"></div>
+                <div class="item-inf">
+                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                </div>
+                <div class="buy-item">
+                    <div class="item-price">
+                    <span class='item-price-icon'>￥</span>
+                    <span class='item-price-content'>1000</span>
+                    <img class='buy-button' src='../imgs/buy_car_b.png'>
+                    </div>
+                </div>
+            </div>
+            <div class="item-el">
+                <div class="item-image"></div>
+                <div class="item-inf">
+                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                </div>
+                <div class="buy-item">
+                    <div class="item-price">
+                    <span class='item-price-icon'>￥</span>
+                    <span class='item-price-content'>1000</span>
+                    <img class='buy-button' src='../imgs/buy_car_b.png'>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class='item-outer' id='all-item-outer'>
+        <section class='item-title'>
+            <p class='item-title-container'>全部商品</p>
+        </section>
+        <section class='item-container'>
+            <div class="item-el">
+                <div class="item-image"></div>
+                <div class="item-inf">
+                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                </div>
+                <div class="buy-item">
+                    <div class="item-price">
+                    <span class='item-price-icon'>￥</span>
+                    <span class='item-price-content'>1000</span>
+                    <img class='buy-button' src='../imgs/buy_car_b.png'>
+                    </div>
+                </div>
+            </div>
+            <div class="item-el">
+                <div class="item-image"></div>
+                <div class="item-inf">
+                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                </div>
+                <div class="buy-item">
+                    <div class="item-price">
+                    <span class='item-price-icon'>￥</span>
+                    <span class='item-price-content'>1000</span>
+                    <img class='buy-button' src='../imgs/buy_car_b.png'>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class='loading'>
+        <img class='loading-icon' src="../imgs/loading.png">
+        <span class="loading-msg">正在加载内容...</span>
+    </section>
+    <script src='../js/zepto.min.js'></script>
+    <script src='../js/swiper-3.3.1.jquery.min.js'></script>
+    <script src='../js/index.js'></script>
+</body>
+</html>

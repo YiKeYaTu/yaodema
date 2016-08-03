@@ -1,0 +1,89 @@
+body, p {
+    margin: 0;
+    padding: 0;
+}
+.adress-box {
+    width: 578 / 64rem;
+    padding: 0 31 / 64rem;
+    border-top: 20 / 64rem solid #ececec;
+    border-bottom: 1px solid #d6d6d6;
+    font-size: 16px;
+    .user-inf-box {
+        width: 100%;
+        height: 86 / 64rem;
+        line-height: 86 / 64rem;
+        color: #333333;
+    }
+    .user-name {
+        float: left;
+    }
+    .user-callnumber {
+        float: right;
+    }
+    .user-adress-box {
+        width: 10rem;
+        margin-left: -31 / 64rem;
+        border-bottom: 1px solid #d6d6d6;
+        
+    }
+    .user-input-box::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .user-detail-adress {
+        margin-left: 31 / 64rem;
+        line-height: 18px;
+        padding-bottom: 28 / 64rem;
+    }
+}
+.user-icon {
+    width: 26 / 54rem;
+    height: 30 / 64rem;
+    vertical-align: middle;
+    margin-bottom: 8 / 64rem;
+    margin-right: 8/ 64rem; 
+}
+.user-input-box > div {
+    width: 578 / 3 / 64rem;
+    height: 80 / 64rem;
+    float: left;
+    text-align: center;
+    line-height: 80 / 64rem;
+    color: #ccac86;
+}
+.add-adress {
+    display: block;
+    width: 10rem;
+    height: 90 / 64rem;
+    background: #ba804a;
+    text-decoration: none;
+    line-height: 90 / 64rem;
+    text-align: center;
+    color: #f6f6f6;
+    position: fixed;
+    bottom: 0px;
+    font-size: 18px;
+}
+.last {
+    padding-bottom: 90 / 64rem;
+}
+[data-dpr="2"] .adress-box {
+    font-size: 32px;
+}
+[data-dpr="3"] .adress-box {
+    font-size: 48px;
+}
+
+[data-dpr="2"] .user-detail-adress {
+    line-height: 36px !important;
+}
+[data-dpr="3"] .user-detail-adress {
+    line-height: 54px !important;
+}
+[data-dpr="2"] .add-adress {
+    font-size: 36px;
+}
+[data-dpr="3"] .add-adress {
+    font-size: 54px;
+}
