@@ -24,5 +24,8 @@
     "gulp-px3rem": "^0.3.0",
     "gulp-uglify": "^1.5.4",
     "imagemin-pngquant": "^5.0.0"
+  },
+  "dependencies": {
+    "gulp-plumber": "^1.1.0"
   }
 }
