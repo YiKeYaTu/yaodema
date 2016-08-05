@@ -1,9 +1,12 @@
 html {
-    font-family: Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  font-family: Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+	height: 100%	
 }
 body{
 	margin: 0;
 	background: #ececec;
+	height: 100%;
+	z-index: 1;
 }
 ul{
 	margin: 0;
