@@ -4,9 +4,7 @@ html {
 }
 body{
 	margin: 0;
-	background: #ececec;
 	height: 100%;
-	z-index: 1;
 }
 ul{
 	margin: 0;

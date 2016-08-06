@@ -46,7 +46,7 @@ header {
 }
 .item-inf {
     width: 584 / 64rem;
-    padding: 0 28 / 64rem;
+    padding: 28 / 64rem;
     padding-bottom: 28 / 64rem;
     border-bottom: 1px solid #dedede;
     .item-trd {
@@ -92,4 +92,121 @@ header {
 }
 [data-dpr="3"] .express-name {
     font-size: 42px;
+}
+#info-con{
+    width: 531/64rem;
+    margin: 31/64rem auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 30/64rem;
+    line-height: 35/46rem;
+    button{
+        margin-bottom: 20/64rem;
+        width: 146/64rem;
+        height: 52/64rem;
+        border: 2px solid #ccac86;
+        border-radius: 5px; 
+        font-size: 25/64rem;
+        color: #ccac86;
+        background: #fff;
+    }
+}
+#bottom{
+    width: 100%;
+    height: 90/64rem;
+    position: fixed;
+    bottom: 0;
+    button{
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        background: #ba804a;
+        line-height: 90/64rem;
+        font-size: 35/64rem;
+        color: #fff;
+    }
+    .join{
+        background: #ccac86;
+        float: left;
+    }
+}
+#shadow{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.4;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    color: red;
+}
+#bottom-buy{
+    height: 423/64rem;
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    bottom: 0px;
+    padding: 35/64rem;
+    box-sizing: border-box;
+    z-index: 2;
+    p{
+        font-size: 30/64rem;
+        line-height: 45/64rem;
+    }
+    .kouwei-con{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 33/64rem 0;
+        button{
+            display: inline-block;
+            width: 150/64rem;
+            height: 55/64rem;
+            border: 1px solid #cc9933;
+            border-radius: 5px;
+            font-size: 28/64rem;
+            color: #cc9933;
+            line-height: 55/64rem;
+        }
+    }
+    .num{
+        float: left;
+        font-size: 24/64rem;
+        color: #999;
+        line-height: 60/64rem;
+    }
+    .num-con{
+        display: inline-block;
+        width:171/64rem;
+        height: 58/64rem;
+        float: right;
+        div{
+            overflow: hidden;
+            text-align: center;
+            display: inline-block;
+            width: 55/64rem;
+            height: 100%;
+            line-height: 58/64rem;
+            font-size: 22/64rem;
+            background: rgb(248, 248, 248);
+            border-radius: 5px;
+        }
+        .no-border{
+            border: 1px solid #fff;
+            background: #ccc;
+        }
+    }
+    .confirm{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 90/64rem;
+        font-size:38/64rem;
+        line-height: 90/64rem;
+        text-align: center;
+        margin-left: -35/64rem;
+        color: #fff;
+        background: #cc9933;
+    }
 }
