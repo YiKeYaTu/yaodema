@@ -36,4 +36,18 @@ export default class extends Base {
 
         return this.display();
     }
+
+    async testxmlAction () {
+
+        let payService = think.service("wx_pay");
+        let pay = new payService();
+
+        await pay.uniformOrder({});
+
+    }
+
+    async postAction () {
+        let data = await this.http.getPayload();
+        console.log(data);
+    }
 }

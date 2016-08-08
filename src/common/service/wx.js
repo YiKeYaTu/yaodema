@@ -3,8 +3,14 @@
 import request from 'request-promise';
 import sha1 from 'sha1';
 
-const APPID = 'wxed1c9924e6340f5e',
-    APPSECRET = '656f2fc1a74d07cb44b9604608d759ba';
+import wxConfig from '../config/wx.js';
+
+import {
+    roundStr, UrlEncode, hash
+} from '../ref/tools.js';
+
+const APPID = wxConfig.appId;
+const APPSECRET = wxConfig.appSecret;
 
 const COOKIE_TOKEN = 'gt';
 
@@ -221,42 +227,3 @@ export default class extends think.service.base {
     
 }
 
-
-function str2asc(str){
-  return str.charCodeAt(0).toString(16);
-}
-
-function asc2str(str){
-  return String.fromCharCode(str);
-}
-
-function UrlEncode(str){ 
-    var ret = ""; 
-    var strSpecial = "!\"#$%&'()*+,/:;<=>?[]^`{|}~%"; 
-    var tt = ""; 
-
-    for (var i = 0, len = str.length; i < len; i++) { 
-        var chr = str.charAt(i); 
-        var c = str2asc(chr); 
-        tt += chr + ":" + c + "n"; 
-        if (parseInt("0x" + c) > 0x7f) { 
-            ret += "%" + c.slice(0,2) + "%" + c.slice(-2); 
-        } else { 
-            if (chr == " ")  ret += "+"; 
-            else if (strSpecial.indexOf(chr) != -1) ret += "%" + c.toString(16); 
-            else  ret += chr; 
-        } 
-    } 
-
-    return ret; 
-} 
-
-function roundStr () {
-    return sha1(Math.random()).slice(0, 31);
-}
-
-function hash (str, type) {
-    let hashObj = crypto.createHash(type);
-    hashObj.update(str);
-    return hashObj.digest('hex');
-}
