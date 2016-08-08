@@ -33,6 +33,9 @@ export function produceSign (json) {
     });
 
     str += 'key=' + KEY;
+
+    console.log(str);
+
     str = hash(str, 'md5').toUpperCase();
 
     return str;
