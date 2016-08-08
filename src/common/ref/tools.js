@@ -42,7 +42,7 @@ export function produceSign (json) {
 export function produceOutTradeNo () {
     let timestamp = new Date().getTime();
 
-    return timestamp + '|' + roundStr();
+    return timestamp + '|' + roundStr().slice(0, 10);
 }
 
 export function produceDate () {
