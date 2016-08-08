@@ -9,7 +9,7 @@ import {
     roundStr, UrlEncode, hash
 } from '../ref/tools.js';
 
-const APPID = wxConfig.appId;
+const APPID = wxConfig.appid;
 const APPSECRET = wxConfig.appSecret;
 
 const COOKIE_TOKEN = 'gt';
