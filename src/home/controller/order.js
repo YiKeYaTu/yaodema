@@ -28,7 +28,11 @@ export default class extends Base {
 
     async paytestAction () {
 
-        let userInf = await wx.getUserInf();
+        let userInf = await wx.getUserInf(
+            false,
+            http, 
+            http.host + http.url.slice(0, -1)
+        );
         let openid = userInf.openid;
 
         await wxPay.uniformOrder({
