@@ -45,17 +45,17 @@ export default class extends think.service.base {
                     "body":"苹果手机"
                 }]
             },// 商品详细列表，使用Json格式，传输签名前请务必使用CDATA标签将JSON文本串保护起来
-            attach: conf.attach,// 附加数据，在查询API和支付通知中原样返回，该字段主要用于商户携带订单的自定义数据
+            // attach: conf.attach,// 附加数据，在查询API和支付通知中原样返回，该字段主要用于商户携带订单的自定义数据
             out_trade_no: conf.out_trade_no,// 商户系统内部的订单号,32个字符内、可包含字母, 其他说明见商户订单号
             fee_type: conf.fee_type || 'CNY', // 货币类型 默认CNY
             total_fee: conf.total_fee, // 订单总金额，单位为分 参数值不能带小数点
-            spbill_create_ip: '', // APP和网页支付提交用户端ip，Native支付填调用微信支付API的机器IP
-            time_start: produceDate(),// 订单生成时间，格式为yyyyMMddHHmmss
-            ttime_expire: '',// 订单失效时间，格式为yyyyMMddHHmmss
-            goods_tag: '',// 商品标记，代金券或立减优惠功能的参数
-            notify_url: '',// 接收微信支付异步通知回调地址，通知url必须为直接可访问的url，不能携带参数
+            spbill_create_ip: conf.spbill_create_ip, // APP和网页支付提交用户端ip，Native支付填调用微信支付API的机器IP
+            // time_start: produceDate(),// 订单生成时间，格式为yyyyMMddHHmmss
+            // ttime_expire: '',// 订单失效时间，格式为yyyyMMddHHmmss
+            // goods_tag: '',// 商品标记，代金券或立减优惠功能的参数
+            notify_url: conf.notify_url,// 接收微信支付异步通知回调地址，通知url必须为直接可访问的url，不能携带参数
             trade_type: 'JSAPI',// 取值如下：JSAPI，NATIVE，APP
-            product_id: '',// trade_type=NATIVE，此参数必传。此id为二维码中包含的商品ID，商户自行定义。
+            // product_id: '',// trade_type=NATIVE，此参数必传。此id为二维码中包含的商品ID，商户自行定义。
             openid: conf.openid, //
         };
 
