@@ -33,8 +33,4 @@ app/
 
 .DS_Store
 
-config/db.js
-config/wx.js
-config/wx_pay.js
-
 runtime/
