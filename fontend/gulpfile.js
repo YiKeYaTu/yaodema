@@ -26,11 +26,11 @@ var files = {
         imgs: './src/imgs/*.*'
     },
     dist: {
-        html: './dist/html',
-        js: './dist/js',
-        less: './dist/styles',
-        css: './dist/styles',
-        imgs: './dist/imgs'
+        html: '../view/home/',
+        js: '../www/static/js',
+        less: '../www/static/styles',
+        css: '../www/static/styles',
+        imgs: '../www/static/imgs'
     }
 };
 

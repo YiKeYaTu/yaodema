@@ -6,11 +6,8 @@ let wxService = think.service("wx");
 let wx = new wxService();
 
 export default class extends Base {
-  /**
-   * index action
-   * @return {Promise} []
-   */
-    async addOrder () {
+
+    async add_orderAction () {
 
         let userInf = await _checkUserIsFollow();
 
@@ -23,6 +20,11 @@ export default class extends Base {
         let openid = userInf.openid;
 
     }
+
+    async paytestAction () {
+        
+    }
+
 }
 
 async function _checkUserIsFollow () {
