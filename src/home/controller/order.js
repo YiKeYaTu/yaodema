@@ -28,6 +28,8 @@ export default class extends Base {
 
     async paytestAction () {
 
+        let http = this.http;
+
         let userInf = await wx.getUserInf(
             false,
             http, 
@@ -38,7 +40,7 @@ export default class extends Base {
         await wxPay.uniformOrder({
             openid: openid,
             total_fee: 888,
-            spbill_create_ip: getClientIp(this.http.req),
+            spbill_create_ip: getClientIp(http.req),
             out_trade_no: produceOutTradeNo(),
             notify_url: 'http://www.hangeer.com/home/index/index'
         });
