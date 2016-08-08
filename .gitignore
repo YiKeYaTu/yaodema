@@ -33,4 +33,6 @@ app/
 
 .DS_Store
 
+config/
+
 runtime/
