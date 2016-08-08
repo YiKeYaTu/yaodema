@@ -1,22 +1,15 @@
 'use strict';
 
+import Base from './base.js';
+
 let wxService = think.service("wx");
 let wx = new wxService();
 
-export default class extends think.service.base {
+export default class extends Base {
   /**
-   * init
-   * @return {}         []
+   * index action
+   * @return {Promise} []
    */
-    init(...args){
-        super.init(...args);
-    }
-    /**
-       * 添加一个订单
-       * @itemType   商品的类别
-       * @itemNumber 购买数量
-       * @itemId     商品的ID
-    */
     async addOrder () {
 
         let userInf = await _checkUserIsFollow();
@@ -30,7 +23,6 @@ export default class extends think.service.base {
         let openid = userInf.openid;
 
     }
-
 }
 
 async function _checkUserIsFollow () {
