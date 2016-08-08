@@ -64,9 +64,9 @@ export default class extends think.service.base {
         let xml = mkXml({
             rootName: 'xml',
             headless: true,
-            cdata: true,
+            // cdata: true,
             json: json,
-            cdataName: 'detail'
+            // cdataName: 'detail'
         });
 
         console.log(xml);
