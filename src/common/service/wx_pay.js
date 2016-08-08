@@ -69,6 +69,8 @@ export default class extends think.service.base {
             cdataName: 'detail'
         });
 
+        console.log(xml);
+
         let res = await request({
             url: URL,
             body: xml,
