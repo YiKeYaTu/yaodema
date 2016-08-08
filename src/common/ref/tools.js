@@ -132,3 +132,10 @@ export function mkXml (conf) {
     return xml.replace('<$', '');
 }
 
+export function getClientIp(req) {
+    return req.headers['x-forwarded-for'] ||
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress;
+};
+

@@ -11,6 +11,7 @@ import {
 
 const APPID = wxConfig.appid;
 const APPSECRET = wxConfig.appSecret;
+const mchId = wxConfig.mchId
 
 let wxService = think.service('wx');
 let wx = new wxService();
@@ -28,11 +29,11 @@ export default class extends think.service.base {
 
         let json = {
             appid: APPID,
-            mch_id: '', // 微信支付分配的商户号
+            mch_id: mchId, // 微信支付分配的商户号
             device_info: 'WEB', // 终端设备号(门店号或收银设备ID)，注意：PC网页或公众号内支付请传"WEB"
             nonce_str: roundStr(), // 随机字符串，不长于32位
             sign: '',// 
-            body: conf.body,// 商品描述
+            body: 'test',// 商品描述
             detail: {
                 "goods_detail":[{
                     "goods_id":"iphone6s_16G",
@@ -55,7 +56,7 @@ export default class extends think.service.base {
             notify_url: '',// 接收微信支付异步通知回调地址，通知url必须为直接可访问的url，不能携带参数
             trade_type: 'JSAPI',// 取值如下：JSAPI，NATIVE，APP
             product_id: '',// trade_type=NATIVE，此参数必传。此id为二维码中包含的商品ID，商户自行定义。
-            openid: '', //
+            openid: conf.openid, //
         };
 
         json.sign = produceSign(json);

@@ -1,9 +1,14 @@
 'use strict';
 
 import Base from './base.js';
+import {
+    getClientIp, produceOutTradeNo
+} from '../../common/ref/tools.js';
 
 let wxService = think.service("wx");
+let wxPayService = think.service("wx_pay");
 let wx = new wxService();
+let wxPay = new wxPayService();
 
 export default class extends Base {
 
@@ -22,7 +27,17 @@ export default class extends Base {
     }
 
     async paytestAction () {
-        
+
+        let userInf = await wx.getUserInf();
+        let openid = userInf.openid;
+
+        await wxPay.uniformOrder({
+            openid: openid,
+            total_fee: 888,
+            spbill_create_ip: getClientIp(this.http.req),
+            out_trade_no: produceOutTradeNo(),
+            notify_url: 'http://www.hangeer.com/home/index/index'
+        });
     }
 
 }
