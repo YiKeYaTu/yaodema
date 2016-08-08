@@ -34,17 +34,17 @@ export default class extends think.service.base {
             nonce_str: roundStr(), // 随机字符串，不长于32位
             sign: '',// 
             body: 'test',// 商品描述
-            detail: {
-                "goods_detail":[{
-                    "goods_id":"iphone6s_16G",
-                    "wxpay_goods_id":"1001",
-                    "goods_name":"iPhone6s 16G",
-                    "goods_num":1,
-                    "price":528800,
-                    "goods_category":"123456",
-                    "body":"苹果手机"
-                }]
-            },// 商品详细列表，使用Json格式，传输签名前请务必使用CDATA标签将JSON文本串保护起来
+            // detail: {
+            //     "goods_detail":[{
+            //         "goods_id":"iphone6s_16G",
+            //         "wxpay_goods_id":"1001",
+            //         "goods_name":"iPhone6s 16G",
+            //         "goods_num":1,
+            //         "price":528800,
+            //         "goods_category":"123456",
+            //         "body":"苹果手机"
+            //     }]
+            // },// 商品详细列表，使用Json格式，传输签名前请务必使用CDATA标签将JSON文本串保护起来
             // attach: conf.attach,// 附加数据，在查询API和支付通知中原样返回，该字段主要用于商户携带订单的自定义数据
             out_trade_no: conf.out_trade_no,// 商户系统内部的订单号,32个字符内、可包含字母, 其他说明见商户订单号
             fee_type: conf.fee_type || 'CNY', // 货币类型 默认CNY
