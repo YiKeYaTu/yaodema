@@ -4,7 +4,7 @@ import Base from './base.js';
 import xml2js from 'xml2js';
 import {
     getClientIp, produceOutTradeNo,
-    produceSign
+    produceSign, mkXml
 } from '../../common/ref/tools.js';
 
 let wxService = think.service("wx");
@@ -65,14 +65,37 @@ export default class extends Base {
 
     async reciveOrderAction () {
 
-        let wxResXml = await this.http.getPayload();
+        let wxResXml = await this.http.getPayload(),
+            wxRexJson = await parseString(wxResXml)
+            sign = produceSign(wxRexJson.xml);
 
-        let wxRexJson = await parseString(wxResXml);
+        let http = this.http;
 
-        let sign = produceSign(wxRexJson.xml);
+        let returnWxXml;
 
-        console.log(wxRexJson.xml.sign);
-        console.log(sign);
+        if (wxRexJson.xml.sign[0] === sign) {
+
+            returnWxXml = mkXml({
+                rootName: 'xml',
+                headless: true,
+                json: {
+                    return_code: 'SUCCESS'
+                },
+            })
+            return http.end(returnWxXml);
+
+        } else {
+
+            console.lgo('非法数据');
+            returnWxXml = mkXml({
+                rootName: 'xml',
+                headless: true,
+                json: {
+                    return_code: 'FAIL'
+                },
+            })
+            return http.end(returnWxXml);
+        }
     }
 
 }
