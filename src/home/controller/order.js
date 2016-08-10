@@ -52,9 +52,6 @@ export default class extends Base {
                 notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
             }, jsTicket);
 
-            console.log(res);
-
-
             this.assign('payJSticket', res);
             this.assign('jsTicket', jsTicket);
 
@@ -66,7 +63,7 @@ export default class extends Base {
     async reciveOrderAction () {
 
         let wxResXml = await this.http.getPayload(),
-            wxRexJson = await parseString(wxResXml)
+            wxRexJson = await parseString(wxResXml),
             sign = produceSign(wxRexJson.xml);
 
         let http = this.http;
