@@ -37,7 +37,7 @@ export default class extends Base {
             http.host + http.url
         );
         let openid = userInf.openid;
-        let res;
+        let res, jsTicket;
 
         if (openid) {
 
@@ -48,6 +48,9 @@ export default class extends Base {
                 out_trade_no: produceOutTradeNo(),
                 notify_url: 'http://www.hangeer.com/home/index/index'
             });
+
+            jsTicket = await wx.getJSSDK(http.host + http.url);
+            this.assign('jsTicket', jsTicket);
 
         }
 
