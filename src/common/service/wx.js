@@ -188,6 +188,8 @@ export default class extends think.service.base {
 
         if (!code) {
 
+            console.log('重定向获取code');
+
             http.res.writeHead(307, {
                 'Location': WX_GET_CODE_URL
             });
