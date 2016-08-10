@@ -3,7 +3,9 @@
 import crypto from 'crypto';
 import sha1 from 'sha1';
 import xml2js from 'xml2js';
-import { KEY } from '../config/wx.js';
+import { wxConfig } from '../config/wx.js';
+
+let KEY = wxConfig.key;
 
 export function roundStr () {
     return sha1(Math.random()).slice(0, 31);

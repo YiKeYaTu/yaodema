@@ -37,6 +37,8 @@ export default class extends Base {
         );
         let openid = userInf.openid;
 
+        if (!openid) return false;
+
         await wxPay.uniformOrder({
             openid: openid,
             total_fee: 888,
