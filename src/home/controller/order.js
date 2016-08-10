@@ -30,6 +30,8 @@ export default class extends Base {
 
         let http = this.http;
 
+        console.log(http.host + http.url);
+
         let userInf = await wx.getUserInf(
             false,
             http, 
