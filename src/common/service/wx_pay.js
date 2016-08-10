@@ -166,7 +166,7 @@ export default class extends think.service.base {
 
         let json = {
             appid: APPID,
-            timestamp: Math.floor(new Date().getTime() / 1000).toString(),
+            timeStamp: Math.floor(new Date().getTime() / 1000).toString(),
             nonceStr: roundStr(),
             package: payJson.xml.prepay_id[0],
             signType: 'MD5',
