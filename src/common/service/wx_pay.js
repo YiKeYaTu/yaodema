@@ -168,7 +168,7 @@ export default class extends think.service.base {
             appId: APPID,
             timeStamp: Math.floor(new Date().getTime() / 1000).toString(),
             nonceStr: roundStr(),
-            package: payJson.xml.prepay_id[0],
+            package: 'prepay_id=' + payJson.xml.prepay_id[0],
             signType: 'MD5',
         }
 
