@@ -45,7 +45,7 @@ export default class extends Base {
 
             res = await wxPay.getPayJSticketInf({
                 openid: openid,
-                total_fee: 888,
+                total_fee: 1,
                 spbill_create_ip: getClientIp(http.req),
                 out_trade_no: produceOutTradeNo(),
                 notify_url: 'http://www.hangeer.com/home/index/index'
