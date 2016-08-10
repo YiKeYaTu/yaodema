@@ -65,7 +65,7 @@ export default class extends Base {
     async reciveOrderAction () {
         console.log('收到微信支付通知');
         let wxRes = await this.http.getPayload();
-        conosle.log(wxRes);
+        console.log(wxRes);
     }
 
 }
