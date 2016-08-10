@@ -3,6 +3,7 @@
 import crypto from 'crypto';
 import sha1 from 'sha1';
 import xml2js from 'xml2js';
+import { KEY } from '../config/wx.js';
 
 export function roundStr () {
     return sha1(Math.random()).slice(0, 31);
@@ -14,8 +15,6 @@ export function produceSign (json) {
         arr = [];
 
     const IGNORE = 'sign';
-
-    const KEY = '';
 
     for (let key in json) {
 
