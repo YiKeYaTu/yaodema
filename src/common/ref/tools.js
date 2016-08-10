@@ -30,7 +30,7 @@ export function produceSign (json, ignore) {
 
     arr.sort();
     arr.forEach((item, index) => {
-        str += item + '=' + json[item] + '&';
+        str += item + '=' + json[item][0] || json[item] + '&';
     });
 
     str += 'key=' + KEY;

@@ -69,9 +69,9 @@ export default class extends Base {
 
         let wxRexJson = await parseString(wxResXml);
 
-        let sign = produceSign(wxRexJson);
+        let sign = produceSign(wxRexJson.xml);
 
-        console.log(wxRexJson.sign);
+        console.log(wxRexJson.xml.sign);
         console.log(sign);
     }
 
