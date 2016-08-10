@@ -3,7 +3,8 @@
 import Base from './base.js';
 import xml2js from 'xml2js';
 import {
-    getClientIp, produceOutTradeNo
+    getClientIp, produceOutTradeNo,
+    produceSign
 } from '../../common/ref/tools.js';
 
 let wxService = think.service("wx");
@@ -63,9 +64,15 @@ export default class extends Base {
     }
 
     async reciveOrderAction () {
-        console.log('收到微信支付通知');
-        let wxRes = await this.http.getPayload();
-        console.log(wxRes);
+
+        let wxResXml = await this.http.getPayload();
+
+        let wxRexJson = await parseString(wxResXml);
+
+        let sign = produceSign(wxRexJson);
+
+        console.log(wxRexJson.sign);
+        console.log(sign);
     }
 
 }

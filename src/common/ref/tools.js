@@ -11,12 +11,12 @@ export function roundStr () {
     return sha1(Math.random()).slice(0, 31);
 }
 
-export function produceSign (json) {
+export function produceSign (json, ignore) {
 
     let str = "",
         arr = [];
 
-    const IGNORE = 'sign';
+    const IGNORE = ignore || 'sign';
 
     for (let key in json) {
 
