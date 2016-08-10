@@ -1,6 +1,7 @@
 'use strict';
 
 import Base from './base.js';
+import xml2js from 'xml2js';
 import {
     getClientIp, produceOutTradeNo
 } from '../../common/ref/tools.js';
@@ -36,10 +37,11 @@ export default class extends Base {
             http.host + http.url
         );
         let openid = userInf.openid;
+        let res;
 
         if (openid) {
 
-            await wxPay.uniformOrder({
+            res = await wxPay.uniformOrder({
                 openid: openid,
                 total_fee: 888,
                 spbill_create_ip: getClientIp(http.req),
@@ -49,9 +51,7 @@ export default class extends Base {
 
         }
 
-        return this.json({
-            msg: 'haha'
-        });
+        return this.display('index');
     }
 
 }

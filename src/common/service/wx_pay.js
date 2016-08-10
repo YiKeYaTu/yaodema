@@ -83,6 +83,7 @@ export default class extends think.service.base {
         console.log('下单微信返回数据为.......');
         console.log(res);
         console.log('.......................');
+        return res;
 
     }
 
