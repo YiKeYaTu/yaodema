@@ -33,7 +33,7 @@ export default class extends Base {
         let userInf = await wx.getUserInf(
             false,
             http, 
-            http.host + http.url.slice(0, -1)
+            http.host + http.url
         );
         let openid = userInf.openid;
 
