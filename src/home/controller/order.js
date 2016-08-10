@@ -48,7 +48,7 @@ export default class extends Base {
                 total_fee: 1,
                 spbill_create_ip: getClientIp(http.req),
                 out_trade_no: produceOutTradeNo(),
-                notify_url: 'http://www.hangeer.com/home/order/recive_order'
+                notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
             }, jsTicket);
 
             console.log(res);
@@ -62,7 +62,7 @@ export default class extends Base {
         return this.display('index');
     }
 
-    async recive_orderAction () {
+    async reciveOrderAction () {
         console.log('收到微信支付通知');
         let wxRes = await this.http.getPayload();
         conosle.log(wxRes);
