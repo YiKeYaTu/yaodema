@@ -46,6 +46,10 @@ export default class extends Base {
             out_trade_no: produceOutTradeNo(),
             notify_url: 'http://www.hangeer.com/home/index/index'
         });
+
+        return this.json({
+            msg: 'haha'
+        });
     }
 
 }
