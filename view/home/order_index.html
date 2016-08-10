@@ -5,23 +5,37 @@ wx.config({
     timestamp: '<%= jsTicket.timestamp%>', // 必填，生成签名的时间戳
     nonceStr: '<%= jsTicket.noncestr%>', // 必填，生成签名的随机串
     signature: '<%= jsTicket.signature%>',// 必填，签名，见附录1
-    jsApiList: ['onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    jsApiList: ['onMenuShareTimeline', 'chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 })
 document.body.onclick = function () {
-    WeixinJSBridge.invoke(
-       'getBrandWCPayRequest', {
-           "appId" : "<%= payJSticket.appId%>",     //公众号名称，由商户传入     
-           "timestamp":" <%= payJSticket.timeStamp%>",         //时间戳，自1970年以来的秒数     
-           "nonceStr" : "'<%= payJSticket.nonceStr%>", //随机串     
-           "package" : "<%= payJSticket.package%>",     
-           "signType" : "<%= payJSticket.signType%>",         //微信签名方式：     
-           "paySign" : "'<%= payJSticket.paySign%>" //微信签名 
+   //  WeixinJSBridge.invoke(
+   //     'getBrandWCPayRequest', {
+   //         "appId" : "<%= payJSticket.appId%>",     //公众号名称，由商户传入     
+   //         "timestamp":" <%= payJSticket.timeStamp%>",         //时间戳，自1970年以来的秒数     
+   //         "nonceStr" : "'<%= payJSticket.nonceStr%>", //随机串     
+   //         "package" : "<%= payJSticket.package%>",     
+   //         "signType" : "<%= payJSticket.signType%>",         //微信签名方式：     
+   //         "paySign" : "'<%= payJSticket.paySign%>" //微信签名 
+   //     },
+   //     function(res){     
+   //      alert(JSON.stringify(res));
+   //      console.log(res);
+   //         // if(res.err_msg == "get_brand_wcpay_request：ok" ) {}     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+   //     }
+   // ); 
+   wx.chooseWXPay({
+        // "appId" : "<%= payJSticket.appId%>",     //公众号名称，由商户传入     
+       "timestamp":" <%= payJSticket.timeStamp%>",         //时间戳，自1970年以来的秒数     
+       "nonceStr" : "'<%= payJSticket.nonceStr%>", //随机串     
+       "package" : "<%= payJSticket.package%>",     
+       "signType" : "<%= payJSticket.signType%>",         //微信签名方式：     
+       "paySign" : "'<%= payJSticket.paySign%>", //微信签名 
+       success: function (res) {
+            alert(res);
        },
-       function(res){     
-        alert(JSON.stringify(res));
-        console.log(res);
-           // if(res.err_msg == "get_brand_wcpay_request：ok" ) {}     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+       fail: function (res) {
+        alert(res);
        }
-   ); 
+   })
 }
 </script></body></html>
