@@ -37,15 +37,17 @@ export default class extends Base {
         );
         let openid = userInf.openid;
 
-        if (!openid) return false;
+        if (openid) {
 
-        await wxPay.uniformOrder({
-            openid: openid,
-            total_fee: 888,
-            spbill_create_ip: getClientIp(http.req),
-            out_trade_no: produceOutTradeNo(),
-            notify_url: 'http://www.hangeer.com/home/index/index'
-        });
+            await wxPay.uniformOrder({
+                openid: openid,
+                total_fee: 888,
+                spbill_create_ip: getClientIp(http.req),
+                out_trade_no: produceOutTradeNo(),
+                notify_url: 'http://www.hangeer.com/home/index/index'
+            });
+
+        }
 
         return this.json({
             msg: 'haha'
