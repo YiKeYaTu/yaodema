@@ -25,7 +25,6 @@ export default class extends think.service.base {
     async uniformOrder (conf) {
 
         const URL = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
-        // const URL = 'http://localhost:8360/home/index/post';
 
         let json = {
             appid: APPID,
