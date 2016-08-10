@@ -158,7 +158,7 @@ export default class extends think.service.base {
 
     }
 
-    async getPayJSticketInf (conf) {
+    async getPayJSticketInf (conf, jsTicket) {
 
         let xml = await this.uniformOrder(conf);
 
@@ -166,9 +166,9 @@ export default class extends think.service.base {
 
         let json = {
             appId: APPID,
-            timeStamp: Math.floor(new Date().getTime() / 1000).toString(),
-            nonceStr: roundStr(),
-            package: 'prepay_id=' + payJson.xml.prepay_id[0],
+            timeStamp: jsTicket.timestamp,
+            nonceStr: jsTicket.noncestr,
+            package: `prepay_id=${payJson.xml.prepay_id[0]}`,
             signType: 'MD5',
         }
 

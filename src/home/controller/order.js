@@ -41,17 +41,18 @@ export default class extends Base {
 
         if (openid) {
 
+            jsTicket = await wx.getJSSDK(http.host + http.url);
+
             res = await wxPay.getPayJSticketInf({
                 openid: openid,
                 total_fee: 888,
                 spbill_create_ip: getClientIp(http.req),
                 out_trade_no: produceOutTradeNo(),
                 notify_url: 'http://www.hangeer.com/home/index/index'
-            });
+            }, jsTicket);
 
             console.log(res);
 
-            jsTicket = await wx.getJSSDK(http.host + http.url);
 
             this.assign('payJSticket', res);
             this.assign('jsTicket', jsTicket);
