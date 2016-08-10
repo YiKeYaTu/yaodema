@@ -50,6 +50,11 @@ export default class extends Base {
             });
 
             jsTicket = await wx.getJSSDK(http.host + http.url);
+
+            let json = await parseString(res);
+            console.log(json);
+
+            this.assign('package', json.prepay_id);
             this.assign('jsTicket', jsTicket);
 
         }
@@ -69,4 +74,20 @@ async function _checkUserIsFollow () {
     } 
 
     return false;
+}
+
+function parseString (xml) {
+
+    return new Promise((reslove, reject) => {
+
+        xml2js.parseString(xml, (err, json) => {
+
+            if (err) {
+                return reject(err);
+            }
+            reslove(json);
+        })
+
+    });
+
 }

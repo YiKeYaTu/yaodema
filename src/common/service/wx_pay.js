@@ -158,4 +158,8 @@ export default class extends think.service.base {
 
     }
 
+    getPayInf () {
+        
+    }
+
 }
