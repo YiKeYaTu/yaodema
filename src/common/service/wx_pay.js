@@ -158,8 +158,40 @@ export default class extends think.service.base {
 
     }
 
-    getPayInf () {
-        
+    async getPayJSticketInf (conf) {
+
+        let xml = await this.uniformOrder(conf);
+
+        let payJson = await parseString(xml);
+
+        let json = {
+            appid: APPID,
+            timestamp: Math.floor(new Date().getTime() / 1000).toString(),
+            nonceStr: roundStr(),
+            package: payJson.xml.prepay_id[0],
+            signType: 'MD5',
+        }
+
+        json.paySign = produceSign(json);
+        return json;
+
     }
+
+}
+
+
+function parseString (xml) {
+
+    return new Promise((reslove, reject) => {
+
+        xml2js.parseString(xml, (err, json) => {
+
+            if (err) {
+                return reject(err);
+            }
+            reslove(json);
+        })
+
+    });
 
 }

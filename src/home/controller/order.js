@@ -41,7 +41,7 @@ export default class extends Base {
 
         if (openid) {
 
-            res = await wxPay.uniformOrder({
+            res = await wxPay.getPayJSticketInf({
                 openid: openid,
                 total_fee: 888,
                 spbill_create_ip: getClientIp(http.req),
@@ -49,12 +49,11 @@ export default class extends Base {
                 notify_url: 'http://www.hangeer.com/home/index/index'
             });
 
+            console.log(res);
+
             jsTicket = await wx.getJSSDK(http.host + http.url);
 
-            let json = await parseString(res);
-            console.log(json);
-
-            this.assign('package', json.prepay_id);
+            this.assign('payJSticket', res);
             this.assign('jsTicket', jsTicket);
 
         }
