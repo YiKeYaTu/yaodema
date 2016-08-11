@@ -52,7 +52,7 @@ export default class extends Base {
                 notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
             }, jsTicket);
 
-            this.assign('payJSticket');
+            this.assign('payJSticket', res);
             this.assign('jsTicket', jsTicket);
 
         }
@@ -61,7 +61,7 @@ export default class extends Base {
     }
 
     async getOrderAction () {
-
+        
     }
 
     async reciveOrderAction () {
