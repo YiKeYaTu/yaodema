@@ -14,17 +14,7 @@ let wxPay = new wxPayService();
 
 export default class extends Base {
 
-    async add_orderAction () {
-
-        let userInf = await _checkUserIsFollow();
-
-        if (!userInf) return this.json();
-
-        let itemType = this.post('item_type'),
-            itemNumber = this.post('item_number'),
-            itemId = this.post('item_id');
-
-        let openid = userInf.openid;
+    async addOrderAction () {
 
     }
 
@@ -50,7 +40,7 @@ export default class extends Base {
                 spbill_create_ip: getClientIp(http.req),
                 out_trade_no: produceOutTradeNo(),
                 notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
-            }, jsTicket);
+            });
 
             this.assign('payJSticket', res);
             this.assign('jsTicket', jsTicket);
@@ -61,7 +51,7 @@ export default class extends Base {
     }
 
     async getOrderAction () {
-        
+
     }
 
     async reciveOrderAction () {
@@ -101,18 +91,6 @@ export default class extends Base {
         }
     }
 
-}
-
-async function _checkUserIsFollow () {
-
-    let userInf = await wx.getUserInf();
-
-    if (userInf.subscribe == 1) {
-
-        return userInf;
-    } 
-
-    return false;
 }
 
 function parseString (xml) {
