@@ -20,7 +20,7 @@ export function produceSign (json, ignore) {
 
     for (let key in json) {
 
-        if (key != IGNORE) {
+        if (key != IGNORE && json[key]) {
 
             arr.push(key);
 

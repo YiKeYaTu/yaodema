@@ -132,7 +132,7 @@ gulp.task('watch', function () {
     gulp.watch([files.src.css], ['css-task']);
 });
 
-gulp.task('init-project', ['less-task', 'css-task', 'babel', 'html', 'img-min']);
+gulp.task('init-project', ['less-task', 'css-task', 'babel', 'html', 'img-min', 'watch']);
 gulp.task('bs-restart', ['init-project', 'browser-sync']);
 
 /*

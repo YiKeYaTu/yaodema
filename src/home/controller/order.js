@@ -52,12 +52,16 @@ export default class extends Base {
                 notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
             }, jsTicket);
 
-            this.assign('payJSticket', res);
+            this.assign('payJSticket');
             this.assign('jsTicket', jsTicket);
 
         }
 
         return this.display('index');
+    }
+
+    async getOrderAction () {
+
     }
 
     async reciveOrderAction () {
@@ -72,7 +76,7 @@ export default class extends Base {
 
         if (wxRexJson.xml.sign[0] === sign) {
 
-            console.lgo('支付成功');
+            console.log ('支付成功');
 
             returnWxXml = mkXml({
                 rootName: 'xml',
