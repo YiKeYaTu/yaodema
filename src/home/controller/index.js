@@ -7,8 +7,14 @@ export default class extends Base {
    * index action
    * @return {Promise} []
    */
+    getappidAction(){
+        console.log(this.get());
+        console.log(this.post());
+    }
+
     async indexAction(){
     //auto render template file index_index.html
+    
         let wxService = think.service("wx");
         let wx = new wxService();
 
