@@ -1,0 +1,1 @@
+"use strict";var loadController=function(){function n(){s.css("display","block")}function o(){s.css("display","none")}var s=$(".loading");return{show:n,hide:o}}();

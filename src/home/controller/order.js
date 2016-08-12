@@ -14,6 +14,12 @@ let wxPay = new wxPayService();
 
 export default class extends Base {
 
+    indexAction () {
+
+        return this.display();
+
+    }
+
     async addOrderAction () {
 
     }

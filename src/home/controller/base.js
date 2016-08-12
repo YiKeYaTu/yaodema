@@ -54,4 +54,29 @@ export default class extends think.controller.base {
         await this.session(SESSION_NAME, userInf);
         return userInf;
     }
+
+    async getUserId (openid) {
+
+        let id = await this.session('userId');
+
+        if (id) return id;
+
+        if (!openid) {
+
+            let userInf = await this.checkUserInf();
+            openid = userInf.openid;
+
+        }
+
+        let userModel = this.model('user');
+
+        id = await userModel 
+            .where({
+                openid: openid
+            })
+            .find();
+
+        await this.session('userId', id);
+
+    }
 }
