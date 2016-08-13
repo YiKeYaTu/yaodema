@@ -18,9 +18,7 @@ export default class extends think.logic.base {
 
         if (!flag) {
 
-            return this.fail({
-                status: 400
-            });
+            return this.fail(10002);
 
         }
 

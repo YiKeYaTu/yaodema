@@ -2,6 +2,7 @@
 /**
  * model
  */
+<<<<<<< HEAD
 export default class extends think.model.relation {
   init(...args){
     super.init(...args);
@@ -30,4 +31,21 @@ export default class extends think.model.relation {
     }
     
   }
+=======
+export default class extends think.model.base {
+
+    async getGoodsPrice (goodsId) {
+
+        let result =  await this.
+
+            where({
+                id: goodsId
+            })
+            .find()
+
+        return result.g_sold;
+
+    }
+
+>>>>>>> c63b6d204f0670d6b85af0f9685fe92e91fa96ed
 }

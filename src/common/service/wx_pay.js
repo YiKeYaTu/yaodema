@@ -161,13 +161,27 @@ export default class extends think.service.base {
         let xml = await this.uniformOrder(conf);
 
         let payJson = await parseString(xml);
+        let json;
 
-        let json = {
-            appId: APPID,
-            timeStamp: Math.floor(new Date().getTime() / 1000).toString(),
-            nonceStr: roundStr(),
-            package: `prepay_id=${payJson.xml.prepay_id[0]}`,
-            signType: 'MD5',
+        try {
+
+            json = {
+                appId: APPID,
+                timeStamp: Math.floor(new Date().getTime() / 1000).toString(),
+                nonceStr: roundStr(),
+                package: `prepay_id=${payJson.xml.prepay_id[0]}`,
+                signType: 'MD5',
+            }
+
+        } catch (e) {
+
+             json = {
+                status: 400,
+                msg: 'fail'
+             }
+
+            return json;
+
         }
 
         json.paySign = produceSign(json);

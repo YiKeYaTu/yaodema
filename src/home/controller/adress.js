@@ -22,9 +22,7 @@ export default class extends Base {
 
         if (!userInf) {
 
-            return this.fail({
-                status: 400
-            })
+            return this.fail(10001)
 
         }
 
@@ -38,10 +36,7 @@ export default class extends Base {
             'user_id': userId
         });
 
-        return this.json({
-            status: 200,
-            msg: 'keep adress success'
-        });
+        return this.success();
 
     }
 

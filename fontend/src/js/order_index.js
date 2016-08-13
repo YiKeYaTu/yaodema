@@ -28,7 +28,31 @@
 
         order(payArr, (res) => {
 
+            if (res.errno === 0) {
 
+                WeixinJSBridge.invoke(
+
+                    'getBrandWCPayRequest', {
+                        "appId" : res.data.appId,     
+                        "timeStamp": res.data.timeStamp,           
+                        "nonceStr" : res.data.nonceStr,      
+                        "package" : res.data.package,     
+                        "signType" : res.data.signType,        
+                        "paySign" : res.data.paySign  
+                    },
+                    
+                    function(res){
+
+                        if(res.err_msg == "get_brand_wcpay_request：ok" ) {}   
+
+                    }
+                ); 
+
+            } else {
+
+                alert(JSON.stringify(res));
+
+            }
 
         });
 
@@ -48,7 +72,7 @@
         $.ajax({
 
             type: 'POST',
-            url: '',
+            url: '/home/order/get_order',
             data: JSON.stringify(obj),
             dataType: 'json',
             contentType: 'application/json',
