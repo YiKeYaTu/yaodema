@@ -2,7 +2,6 @@
 /**
  * model
  */
-<<<<<<< HEAD
 export default class extends think.model.relation {
   init(...args){
     super.init(...args);
@@ -29,23 +28,11 @@ export default class extends think.model.relation {
     for(let i = 0; i < ids.length; i++){
       urls[i] = await this.model('cover').where({'g_id': ids[i].id}).field('url').limit(1).select();
     }
-    
+    return urls;
   }
-=======
-export default class extends think.model.base {
 
-    async getGoodsPrice (goodsId) {
-
-        let result =  await this.
-
-            where({
-                id: goodsId
-            })
-            .find()
-
-        return result.g_sold;
-
-    }
-
->>>>>>> c63b6d204f0670d6b85af0f9685fe92e91fa96ed
+  async getGoodsType(){
+    let data = await this.model('goodstype').setRelation(false).select();
+    console.log(data);
+  }
 }

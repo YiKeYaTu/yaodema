@@ -30,12 +30,12 @@ export default class extends Base {
 
         config.topCover = this.model('goods').getTopCover();
 
-        // config.goodsType = this.getGoodsType();
+        config.goodsType = this.model('goods').getGoodsType();
         
         // config.hotGoods = this.getHotGoods();
 
         // config.newGoods = this.getNewGoods();
-
+        
         return this.display();
     }
     /**
