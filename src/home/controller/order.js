@@ -16,10 +16,10 @@ export default class extends Base {
 
     async indexAction () {
 
-        let userInf = await thischeckUserInf(),
+        let userInf = await this,
             jsTicket = await this.checkJsSdk();
 
-        let openid = userInf.openid;
+        let openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4';
 
         let orderModel = this.model('order');
 
@@ -36,7 +36,7 @@ export default class extends Base {
 
     }
 
-    async _addOrder () {
+    async _changeOrderState () {
 
     }
 
@@ -44,9 +44,9 @@ export default class extends Base {
 
         let http = this.http;
 
-        let userInf = await this.checkUserInf();
+        // let userInf = await this.checkUserInf();
 
-        let openid = userInf.openid,
+        let openid = /*userInf.openid*/'oDNUjwV7l6KYEaEaBlWWSSn4Nel4',
             res;
 
         if (openid) {
@@ -70,7 +70,7 @@ export default class extends Base {
             res = await wxPay.getPayJSticketInf({
                 openid: openid,
                 total_fee: totalFee,
-                spbill_create_ip: getClientIp(http.req) ,
+                spbill_create_ip: /*getClientIp(http.req)*/ '127.0.0.1',
                 out_trade_no: produceOutTradeNo(),
                 notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
             });
