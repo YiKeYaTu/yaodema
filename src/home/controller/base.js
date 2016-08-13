@@ -18,6 +18,11 @@ export default class extends think.controller.base {
 
     async checkJsSdk () {
 
+        let wxService = think.service("wx");
+        let wx = new wxService(); 
+
+        let http = this.http;
+
         let jsTicket = await wx.getJSSDK(http.host + http.url);
 
         return jsTicket;
@@ -42,10 +47,15 @@ export default class extends think.controller.base {
     }
 
     async cacheUserInf () {
+        
+        const SESSION_NAME = 'userInf';
+
         let wxService = think.service("wx");
         let wx = new wxService(); 
 
-        userInf = await wx.getUserInf(
+        let http = this.http;
+
+        let userInf = await wx.getUserInf(
             false,
             http, 
             http.host + http.url.slice(0, -1)

@@ -25,7 +25,7 @@
 
         $.post('/home/adress/add_adress_inf', data, (res) => {
 
-            callback(res.status);
+            callback(res.errno);
 
         }); 
 
@@ -35,10 +35,10 @@
 
         switch (status) {
 
-            case 200:
+            case 0:
                 window.location.href = "/home/adress/choose?msg=地址保存成功";
                 break;
-            case 400:
+            case 10002:
                 alert('信息格式填写错误');
                 break;
             default:

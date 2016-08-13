@@ -14,49 +14,75 @@ let wxPay = new wxPayService();
 
 export default class extends Base {
 
-    indexAction () {
+    async indexAction () {
+
+        let userInf = await thischeckUserInf(),
+            jsTicket = await this.checkJsSdk();
+
+        let openid = userInf.openid;
+
+        let orderModel = this.model('order');
+
+        let result = await orderModel.getOrderInf(openid);
+
+        console.log(result)
+
+        this.assign({
+            orderInf: await orderModel.getOrderInf(openid),
+            jsTicket: jsTicket
+        });
 
         return this.display();
 
     }
 
-    async addOrderAction () {
+    async _addOrder () {
 
     }
 
-    async paytestAction () {
+    async getOrderAction () {
 
         let http = this.http;
 
-        let userInf = await wx.getUserInf(
-            false,
-            http, 
-            http.host + http.url
-        );
-        let openid = userInf.openid;
-        let res, jsTicket;
+        let userInf = await this.checkUserInf();
+
+        let openid = userInf.openid,
+            res;
 
         if (openid) {
+            let orderModel = this.model('goods');
 
-            jsTicket = await wx.getJSSDK(http.host + http.url);
+            let reqJson = await http.getPayload();
+            let totalFee = 0; 
+
+            reqJson = JSON.parse(reqJson);
+
+            for (let item of reqJson.orderData) {
+
+                item.itemId = parseInt(item.itemId);
+
+                totalFee += await orderModel.getGoodsPrice(item.itemId) * parseInt(item.itemNum);
+
+            }
+
+            if (typeof totalFee !== 'number') return this.fail(10002);
 
             res = await wxPay.getPayJSticketInf({
                 openid: openid,
-                total_fee: 1,
-                spbill_create_ip: getClientIp(http.req),
+                total_fee: totalFee,
+                spbill_create_ip: getClientIp(http.req) ,
                 out_trade_no: produceOutTradeNo(),
                 notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
             });
 
-            this.assign('payJSticket', res);
-            this.assign('jsTicket', jsTicket);
+            this.success(res);
+
+        } else {
+
+            this.fail(10001);
 
         }
 
-        return this.display('index');
-    }
-
-    async getOrderAction () {
 
     }
 
