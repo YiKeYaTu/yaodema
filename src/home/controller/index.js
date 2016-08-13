@@ -7,33 +7,41 @@ export default class extends Base {
    * index action
    * @return {Promise} []
    */
-    getappidAction(){
-        console.log(this.get());
-        console.log(this.post());
-    }
-
     async indexAction(){
     //auto render template file index_index.html
     
-        let wxService = think.service("wx");
-        let wx = new wxService();
+        // let wxService = think.service("wx");
+        // let wx = new wxService();
 
-        let http = this.http;
+        // let http = this.http;
 
-        await wx.getUserInf(
-            false,
-            http, 
-            http.host + http.url.slice(0, -1)
-        );
+        // await wx.getUserInf(
+        //     false,
+        //     http, 
+        //     http.host + http.url.slice(0, -1)
+        // );
 
-        let jsTicket = await wx.getJSSDK(http.host + http.url);
-        console.log(jsTicket);
-        this.assign('jsTicket', jsTicket);
+        // let jsTicket = await wx.getJSSDK(http.host + http.url);
+        // console.log(jsTicket);
+        // this.assign('jsTicket', jsTicket);
 
         // await wx._getAccessTokenForUser(http);
+        let config = {};
+
+        config.topCover = this.model('goods').getTopCover();
+
+        // config.goodsType = this.getGoodsType();
+        
+        // config.hotGoods = this.getHotGoods();
+
+        // config.newGoods = this.getNewGoods();
 
         return this.display();
     }
+    /**
+     * [getTopCover description]
+     * 获取最热门商品前五的封面图片
+     */
 
     async testxmlAction () {
 
@@ -48,4 +56,5 @@ export default class extends Base {
         let data = await this.http.getPayload();
         console.log(data);
     }
+
 }
