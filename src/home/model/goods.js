@@ -24,10 +24,10 @@ export default class extends think.model.relation {
 
   async getTopCover(){
     let ids = await this.model('goods').setRelation(false).order('g_sold desc').limit(5).field('id').select();
-    let urls;
-    ids.map((item, index) => {
-      urls[index] = this.model('cover').where('g_id', item.id).field('url').limit(1).select();
-    });
-    console.log(urls);
+    let urls = [];
+    for(let i = 0; i < ids.length; i++){
+      urls[i] = await this.model('cover').where({'g_id': ids[i].id}).field('url').limit(1).select();
+    }
+    
   }
 }
