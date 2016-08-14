@@ -86,7 +86,7 @@ export default class extends think.controller.base {
             })
             .find();
 
-        await this.session('userId', id);
+        await this.session('userId', id.id);
 
     }
 }
