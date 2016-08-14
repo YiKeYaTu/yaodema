@@ -13,7 +13,7 @@ export default {
       port: '',
       database: 'yaodema',
       user: 'root',
-      password: '111003qwertyuiop',
+      password: '',
       prefix: '',
       encoding: 'utf8'
     },
