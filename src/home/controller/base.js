@@ -58,7 +58,7 @@ export default class extends think.controller.base {
         let userInf = await wx.getUserInf(
             false,
             http, 
-            http.host + http.url.slice(0, -1)
+            http.host + http.url.slice
         );
 
         await this.session(SESSION_NAME, userInf);
