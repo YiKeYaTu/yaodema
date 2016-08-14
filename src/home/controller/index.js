@@ -62,8 +62,9 @@ export default class extends Base {
     }
 
     async getnewgoodsAction(){
-        let time = this.get('pageNum') || 0;
-        let data = await this.model('goods').getNewGoods(2, time);
+        let length = this.get('get_num') || 0;
+        let time = this.get('page_num') || 0;
+        let data = await this.model('goods').getNewGoods(length, time);
         this.success(data);
     }
 

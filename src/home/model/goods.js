@@ -73,7 +73,7 @@ export default class extends think.model.relation {
     let data = [];
     let hotGoods = await this.model('goods')
                       .order('g_time desc')
-                      .limit(time*2, num)
+                      .limit(time*num, num)
                       .select();
     for(let i = 0; i < hotGoods.length; i++){
       data[i] = {};

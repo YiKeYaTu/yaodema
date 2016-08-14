@@ -22,8 +22,8 @@
         windowInnerHeight = window.innerHeight,
         itemOuter = $('#all-item-outer');
 
-    let pageNum = 0,
-        getNum = 8;
+    let pageNum = -1,
+        getNum = 4;
 
     let getFlag = true;
 
@@ -43,7 +43,7 @@
         res.data.forEach((it, index) => {
             item = $('<div class="item-el"></div>');
             item.html(`
-                <div class="item-image"></div>
+                <div class="item-image" style="background: url(/static/imgs/covers/${it.cover}) no-repeat; background-size: cover;"></div>
                 <div class="item-inf">
                     ${it.descript}
                 </div>
@@ -51,7 +51,7 @@
                     <div class="item-price">
                     <span class='item-price-icon'>￥</span>
                     <span class='item-price-content'>${it.prize}</span>
-                    <img class='buy-button' src='/static/imgs/covers/${it.cover}.png'>
+                    <img class='buy-button' src='/static/imgs/buy_car_b.png'>
                     </div>
                 </div>
             `)
