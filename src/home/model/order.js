@@ -20,15 +20,18 @@ export default class extends think.model.relation {
         };
     }
 
-    getOrderInf (openid) {
+    getOrderInf (conf) {
 
         return this
 
-            .where({
-                openid: openid
-            })
+            .where(conf.where)
+            .setRelation(conf.setRelation || true)
             .select();
 
+    }
+
+    changeOrderState () {
+        
     }
 
 }

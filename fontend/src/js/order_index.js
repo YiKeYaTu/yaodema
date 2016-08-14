@@ -92,7 +92,7 @@
 
         return {
 
-            itemId: item.attr('data-item-id'),
+            orderId: item.attr('data-order-id'),
             itemNum: item.attr('data-item-num'),
 
         }

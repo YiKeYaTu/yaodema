@@ -23,14 +23,41 @@ export default class extends Base {
 
         let orderModel = this.model('order');
 
-        let result = await orderModel.getOrderInf(openid);
-
-        console.log(result)
+        let result = await orderModel.getOrderInf({
+            where: {
+                openid: openid
+            }
+        });
 
         this.assign({
-            orderInf: await orderModel.getOrderInf(openid),
+            orderInf: result,
             jsTicket: jsTicket
         });
+
+        return this.display();
+
+    }
+
+    async listAction () {
+
+        let userInf = await this,
+            openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4';
+
+        let orderModel = this.model('order'),
+            result = await orderModel.getOrderInf({
+                where: {
+                    od_state: 1,
+                    openid: openid
+                }
+            });
+        console.log(result);
+        this.assign('orderInf', result);
+
+        return this.display();
+
+    }
+
+    async dishAction () {
 
         return this.display();
 
@@ -50,22 +77,41 @@ export default class extends Base {
             res;
 
         if (openid) {
-            let orderModel = this.model('goods');
+            let orderModel = this.model('order');
 
             let reqJson = await http.getPayload();
             let totalFee = 0; 
+            let orderInf;
 
             reqJson = JSON.parse(reqJson);
 
             for (let item of reqJson.orderData) {
 
-                item.itemId = parseInt(item.itemId);
+                item.orderId = parseInt(item.orderId);
 
-                totalFee += await orderModel.getGoodsPrice(item.itemId) * parseInt(item.itemNum);
+                orderInf = await orderModel.getOrderInf({
+                    where: {
+                        id: item.orderId,
+                    }
+                });
+
+                totalFee = orderInf[0].gooddetail.del_prize * item.itemNum;
+
+                if (item.itemNum !== orderInf[0].od_num) {
+
+                    await orderModel
+
+                        .where({
+                            id: item.orderId
+                        })
+                        .update({
+                            od_num: item.itemNum
+                        });
+                }
 
             }
 
-            if (typeof totalFee !== 'number') return this.fail(10002);
+            if (!Number.isInteger(totalFee) || totalFee <= 0) return this.fail(10002);
 
             res = await wxPay.getPayJSticketInf({
                 openid: openid,

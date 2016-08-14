@@ -24,6 +24,10 @@ export function produceSign (json, ignore) {
 
             arr.push(key);
 
+        } else if (!json[key]) {
+
+            delete json[key];
+
         }
 
     }
