@@ -25,4 +25,21 @@ export default class extends Base {
 
         return this.display();
     }
+
+    async getItemInfAction () {
+
+        let itemId = this.get('item_id');
+        let goodsDetailModel = this.model('gooddetail');
+
+        let res = await goodsDetailModel.
+
+            where({
+                id: itemId
+            })
+            .find();
+
+        return this.success(res);
+
+    }
+
 }

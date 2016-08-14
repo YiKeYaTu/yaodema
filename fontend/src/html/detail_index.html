@@ -34,17 +34,20 @@
     </section>
     <div id="info-con">
         <% itemInf.gooddetail.forEach(function (item, index) { %>
-            <button style="
-                background: <%= index === 0 ? '#ccac86' : '' %>;
-                color: <%= index === 0 ? '#fff' : '' %>;
+            <button 
+                data-index-id="<%= index %>"
+                data-item-id="<%= item.id %>"
+                style="
+                    background: <%= index === 0 ? '#ccac86' : '' %>;
+                    color: <%= index === 0 ? '#fff' : '' %>;
             "><%= item.del_taste %></button>
         <% }) %>
-        <p>
+        <p class="item-detail-inf">
             <%= itemInf.gooddetail[0].del_taste %> 包装方式：包装品牌：<%= itemInf.gooddetail[0].del_box %><br>
             包含：<%= itemInf.gooddetail[0].del_component %><br>
 
-            规格: 8连包<br>
-            产地: 中国大陆<br>   
+            规格：8连包<br>
+            产地：中国大陆<br>   
             保质期：180 天<br>
         </p>
     </div>
@@ -53,17 +56,26 @@
         <button>立即购买</button>
     </div>
     <div id="bottom-buy">
-        <p><%= itemInf.gooddetail[0].del_descript %></p>
+        <% itemInf.gooddetail.forEach(function (item, index) { %>
+            <p class="buy-inf" style="display: <%= index === 0 ? 'block' : 'none'; %>"><%= item.del_descript %></p>
+        <% }) %>
         <div class="kouwei-con">
             <% itemInf.gooddetail.forEach(function (item, index) { %>
-                <button><%= item.del_taste %></button>
+                <button 
+                    data-index-id="<%= index %>"
+                    data-item-id="<%= item.id %>"
+                    style="
+                        color: <%= index === 0 ? '#fff' : '#c93' %>;
+                        background: <%= index === 0 ? '#c93' : '#fff' %>;
+                    "
+                ><%= item.del_taste %></button>
             <% }) %>
         </div>
         <span class="num">购买数量</span>
         <div class="num-con">
-            <div>-</div>
+            <div class="reduce">-</div>
             <div class="no-border">1</div>
-            <div>+</div>
+            <div class="add">+</div>
         </div>
         <p class="confirm">确定</p>
     </div>
