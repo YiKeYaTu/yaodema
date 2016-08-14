@@ -19,6 +19,11 @@ export default class extends think.model.relation {
         rModel: "",
         rfKey: ""
       },
+      gooddetail: {
+        type: think.model.HAS_MANY,
+        key: 'id',
+        fKey: 'g_id'
+      }
     };
   }
 

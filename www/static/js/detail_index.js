@@ -1,0 +1,1 @@
+"use strict";!function(){var n=5e3;new Swiper(".swiper-container",{pagination:".banner-bottom",autoplay:n})}();
