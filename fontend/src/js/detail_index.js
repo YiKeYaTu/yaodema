@@ -166,6 +166,7 @@ let buyCarController = (function () {
     let itemId = buyButton.eq(0).attr('data-item-id');
 
     let rediectUrl = '/home/order/index';
+    const ADD_ORDER_URL = '/home/order/add_order';
                 
     buyButton
         .on('click', (e) => {
@@ -201,7 +202,25 @@ let buyCarController = (function () {
 
     $('.confirm')
         .on('click', (e) => {
-            window.location.href = `${rediectUrl}?item_id=${itemId}&item_num=${$('.no-border').html()}`
+            
+            loadController.show();
+
+            $.post(ADD_ORDER_URL, {
+                goods_id: itemId,
+                od_num: $('.no-border').html()
+            }, (res) => {
+                loadController.hide();
+                if (res.errno > 0) {
+
+                    alert(res.errmsg);
+                } else {
+
+                    window.location.href = rediectUrl + `?order_id=${res.data.orderId}`;
+
+                }
+
+            });
+
         });
 
     function bindButtonEvent (target) {

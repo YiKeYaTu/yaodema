@@ -17,11 +17,12 @@ export default class extends Base {
     async addOrderAction () {
 
         let goodsId = this.post('goods_id'),
-            odNum = this.post('od_num'),
+            odNum = parseInt(this.post('od_num')),
             orderNo = produceOutTradeNo(),
-            userInf = await this.checkUserInf();
+            userInf = /*await this.checkUserInf()*/{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'};
 
         if (!userInf.openid) return this.fail(10001);
+
         if (!Number.isInteger(odNum) || odNum <= 0) return this.fail(10002);
 
         let gooddetailModel = this.model('gooddetail');
@@ -32,16 +33,19 @@ export default class extends Base {
 
             let orderModel = this.model('order');
 
-            await orderModel.add({
+            let orderId = await orderModel.add({
                 openid: userInf.openid,
                 del_id: goodsId,
                 od_num: odNum,
                 od_ticket: orderNo,
+                od_prize: 0,
                 od_state: 0,
-                od_adress_id: ''
+                od_adress_id: 0
             });
 
-            this.success();
+            this.success({
+                orderId: orderId
+            });
 
         } else {
 
@@ -56,13 +60,17 @@ export default class extends Base {
         let userInf = await this,
             jsTicket = await this.checkJsSdk();
 
+        let orderId = this.get('order_id');
+
+        // let 
+
         let openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4';
 
         let orderModel = this.model('order');
 
         let result = await orderModel.getOrderInf({
             where: {
-                openid: openid
+                id: orderId,
             }
         });
 

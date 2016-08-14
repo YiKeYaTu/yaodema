@@ -6,6 +6,11 @@ export default class extends think.model.relation {
   init(...args){
     super.init(...args);
     this.relation = {
+      gooddetail: {
+        type: think.model.HAS_MANY,
+        key: 'id',
+        fKey: 'g_id',
+      }
     };
   }
 
