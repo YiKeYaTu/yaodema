@@ -10,15 +10,15 @@
     <section class='adress-box'>
         <div class="user-inf-box">
             <span class="user-name">
-                黄详康
+                <%= adress.user_name %>
             </span>
             <span class="user-callnumber">
-                1888888888
+                <%= adress.user_call %>
             </span>
         </div>
         <div class="user-adress-box">
             <p class="user-detail-adress">
-                北京市东花市北里20号楼6单元501室北京市东花市北里20号楼6单元501室
+                <%= adress.ad_detail %>
             </p>
         </div>
         <a class="add-new-adress" href="">
@@ -27,17 +27,17 @@
         </a>
     </section>
     <section class="item-box">
-        <% for (var i  = 0, len = orderInf.length; i < len; i++) { %>
-            <div class="item-el" data-order-id="<%= orderInf[i].del_id %>" data-item-num="<%= orderInf[i].od_num %>">
+        <% for (var i = 0, len = orderInf.length; i < len; i++) { %>
+            <div class="item-el" data-order-id="<%= orderInf[i][0].id %>" data-item-num="<%= orderInf[i][0].od_num %>">
                 <div class="pic-box" style="
-                    background-image: url(/static/imgs/covers/<%= orderInf[i].gooddetail.cover[0].url %>);
+                    background-image: url(/static/imgs/covers/<%= orderInf[i][0].gooddetail.cover[0].url %>);
                 ">
                 </div>
                 <div class="item-inf">
                     <p class="item-inf-detail">
-                        <%= orderInf[i].gooddetail.del_descript %>
+                        <%= orderInf[i][0].gooddetail.del_descript %>
                         <span class="item-class">
-                            (<%= orderInf[i].gooddetail.del_taste %>)
+                            (<%= orderInf[i][0].gooddetail.del_taste %>)
                         </span>
                     </p>
                 </div>
@@ -47,12 +47,12 @@
                     </span>
                     <div class="control">
                         <div class="reduce">-</div>
-                        <div class="item-num"><%= orderInf[i].od_num %></div>
+                        <div class="item-num"><%= orderInf[i][0].od_num %></div>
                         <div class="add">+</div>
                     </div>
                 </div>
                 <div class="item-inner">
-                    口味三包含：<%= orderInf[i].gooddetail.del_component %>
+                    口味三包含：<%= orderInf[i][0].gooddetail.del_component %>
                 </div>
             </div>
         <% } %>

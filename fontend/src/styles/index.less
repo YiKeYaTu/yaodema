@@ -23,7 +23,7 @@ header {
         }
     }
     .banner-bottom {
-        width: 170 / 64rem;
+        width: 190 / 64rem;
         height: 18 / 64rem;
         position: absolute;
         bottom: 19 / 64rem;
@@ -48,7 +48,9 @@ header {
     width: 596 / 64rem;
     height: 250 / 64rem;
     margin: 0 auto;
+    position: relative;
     padding-bottom: 20 / 64rem;
+
     .hot-item-inf-item {
         width: 166 / 64rem;
         height: 86 / 64rem;
@@ -101,10 +103,21 @@ header {
             color: #7a6868;
             font-size: 14px;
             width: 250 / 64rem;
+            height: 100 / 64rem;
             margin: 18 / 64rem auto;
             font-weight: bold;
             line-height: 16px;
             overflow: hidden;
+            position: relative;
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: -4px;
+                width: 250 / 64rem;
+                height: 60 / 64rem;
+                background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);    
+            }
         }
         .buy-item {
             width: 250 / 64rem;
@@ -141,6 +154,7 @@ header {
         height: 30 / 64rem;
         vertical-align: middle;
         margin-bottom: 5 / 64rem;
+        -webkit-animation: rotate-loading infinite 1.5s linear;
         animation: rotate-loading infinite 1.5s linear;
     }
     .loading-msg {
@@ -198,9 +212,9 @@ header {
 
 @-webkit-keyframes rotate-loading {
     from {
-        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
     }
     to {
-        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
     }
 }

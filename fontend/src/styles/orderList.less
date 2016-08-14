@@ -50,6 +50,7 @@ body{
 		width: 186/64rem;
 		height: 186/64rem;
 		background: #321321;
+		background-size: cover;
 	}
 	.info-con{
 		width: 365/64rem;
@@ -116,12 +117,14 @@ body{
 		border: 2px solid #cc9933;
 		float: left;
 		margin: 70/64rem 25/64rem 80/64rem 5/64rem;
-		div{
+		.choose-inner {
 			width: 26/64rem;
 			height: 26/64rem;
 			border-radius: 26/64rem;
-			background: #cc9933;
 			margin: 2/64rem;
+		}
+		.choosed {
+			background: #cc9933;
 		}
 	}
 }
@@ -133,12 +136,14 @@ body{
 	position: fixed;
 	z-index: 1;
 	color: red;
+	display: none;
 }
 #bottom{
 	height: 423/64rem;
 	position: fixed;
 	width: 100%;
 	background: #fff;
+	display: none;
 	bottom: 0px;
 	padding: 35/64rem;
 	box-sizing: border-box;
@@ -202,4 +207,24 @@ body{
 		color: #fff;
 		background: #cc9933;
 	}
+}
+.wx-pay {
+	display: block;
+    width: 10rem;
+    height: 90 / 64rem;
+    line-height: 90 / 64rem;
+    text-align: center;
+    background: #ba804a;
+    color: #fff;
+    position: fixed;
+    bottom: 0px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+[data-dpr="2"] .wx-pay {
+    font-size: 36px;
+}
+[data-dpr="3"] .wx-pay {
+    font-size: 54px;
 }

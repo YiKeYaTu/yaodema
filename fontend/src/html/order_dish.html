@@ -10,18 +10,21 @@
 <body>
     <div id="shadow"></div>
     <div id="top">
-        <a href="##">全选</a>
+        <a class="choose-all" href="##">全选</a>
         <span>未付款</span>
         <span class="arrow-down"></span>
     </div>
     <% orderInf.forEach(function (item, index) { %>
-        <div class="order-con yaerma">
+        <div 
+            data-order-id="<%= item.id %>"
+            class="order-con yaerma" 
+            style="margin-bottom: <%= orderInf[index + 1] ? '': '1.8rem' %>"
+        >
             <div class="choose">
-                <div></div>
+                <div class="choose-inner"></div>
             </div>
             <div class="img-con" style="
-                background-image: url(<%= item.gooddetail.cover[0].url %>);
-                background-size: cover cover;
+                background-image: url(/static/imgs/covers/<%= item.gooddetail.cover[0].url %>);
             "></div>
             <div class="info-con yaerma2">
                 <p><%= item.gooddetail.del_descript %></br>
@@ -47,5 +50,10 @@
         </div>
         <p class="confirm">确定</p>
     </div>
+    <a href="" class='wx-pay'>
+        微信支付
+    </a>
+    <script src='/static/js/zepto.min.js'></script>
+    <script src='/static/js/order_dish.js'></script>
 </body>
 </html>
