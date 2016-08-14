@@ -8,6 +8,9 @@ export default class extends Base {
    * @return {Promise} []
    */
     async indexAction(){
+
+        
+        await this.checkUserInf();
     //auto render template file index_index.html
     
         // let wxService = think.service("wx");
