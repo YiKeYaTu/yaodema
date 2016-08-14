@@ -110,7 +110,7 @@ let orderKeeper = (function () {
 
 (function () {
 
-    const ORDER_URL = '/home/order/index';
+    const ORDER_URL = '/home/order/pay';
 
     $('.wx-pay')
         .on('click', (e) => {
