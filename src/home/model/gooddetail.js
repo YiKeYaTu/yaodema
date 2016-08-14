@@ -12,7 +12,7 @@ export default class extends think.model.relation {
             
             cover: {
 
-                type: think.model.HAS_ONE,
+                type: think.model.HAS_MANY,
                 key: 'g_id',
                 fKey: 'g_id',
 

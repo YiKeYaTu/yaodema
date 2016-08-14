@@ -59,6 +59,19 @@ export default class extends Base {
 
     async dishAction () {
 
+        let userInf = await this,
+            openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4';
+
+        let orderModel = this.model('order'),
+            result = await orderModel.getOrderInf({
+                where: {
+                    od_state: 0,
+                    openid: openid
+                }
+            });
+        console.log(result);
+        this.assign('orderInf', result);
+
         return this.display();
 
     }

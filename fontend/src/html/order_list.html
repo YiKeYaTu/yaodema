@@ -16,7 +16,7 @@
     <div class="order-con" data-order-id="<%= item.id %>">
         <div class="img-con" style="
             background-size: cover cover;
-            background-image: url(<%= item.gooddetail.cover.url %>);
+            background-image: url(<%= item.gooddetail.cover[0].url %>);
         "></div>
         <div class="info-con">
             <p><%= item.gooddetail.del_descript %></br>

@@ -30,7 +30,7 @@
         <% for (var i  = 0, len = orderInf.length; i < len; i++) { %>
             <div class="item-el" data-order-id="<%= orderInf[i].del_id %>" data-item-num="<%= orderInf[i].od_num %>">
                 <div class="pic-box" style="
-                    background-image: url(<%= orderInf[i].gooddetail.cover.url %>);
+                    background-image: url(<%= orderInf[i].gooddetail.cover[0].url %>);
                 ">
                 </div>
                 <div class="item-inf">
