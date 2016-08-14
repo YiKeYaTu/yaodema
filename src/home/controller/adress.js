@@ -6,7 +6,7 @@ export default class extends Base {
 
     async addAction () {
 
-        await this.checkUserInf();
+        // await this.checkUserInf();
 
         return this.display();
 
