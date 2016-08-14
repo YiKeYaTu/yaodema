@@ -61,5 +61,10 @@ export default class extends Base {
         console.log(data);
     }
 
+    async getnewgoodsAction(){
+        let time = this.get('pageNum') || 0;
+        let data = await this.model('goods').getNewGoods(2, time);
+        this.success(data);
+    }
 
 }

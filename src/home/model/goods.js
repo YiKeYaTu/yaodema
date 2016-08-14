@@ -69,11 +69,11 @@ export default class extends think.model.relation {
    * 获取最新的num条消息
    * 
    */
-  async getNewGoods(num){
+  async getNewGoods(num, time=0){
     let data = [];
     let hotGoods = await this.model('goods')
                       .order('g_time desc')
-                      .limit(num)
+                      .limit(time*2, num)
                       .select();
     for(let i = 0; i < hotGoods.length; i++){
       data[i] = {};

@@ -101,30 +101,31 @@
         </section>
         <section class='item-container'>
             <div class="item-el">
-                <div class="item-image"></div>
+                <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[0].cover%>) no-repeat; background-size:100% 100%"></div>
                 <div class="item-inf">
-                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                    <%= data.newGoods[0].descript%>
                 </div>
                 <div class="buy-item">
                     <div class="item-price">
                     <span class='item-price-icon'>￥</span>
-                    <span class='item-price-content'>1000</span>
+                    <span class='item-price-content'><%= data.newGoods[0].prize%></span>
                     <img class='buy-button' src='/static/imgs/buy_car_b.png'>
                     </div>
                 </div>
             </div>
             <div class="item-el">
-                <div class="item-image"></div>
+                <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[1].cover%>) no-repeat; background-size:100% 100%"></div>
                 <div class="item-inf">
-                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                    <%= data.newGoods[1].descript%>
                 </div>
                 <div class="buy-item">
                     <div class="item-price">
                     <span class='item-price-icon'>￥</span>
-                    <span class='item-price-content'>1000</span>
+                    <span class='item-price-content'><%= data.newGoods[1].prize%></span>
                     <img class='buy-button' src='/static/imgs/buy_car_b.png'>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     </section>
@@ -134,7 +135,7 @@
     </section>
     <script src='/static/js/zepto.min.js'></script>
     <script src='/static/js/swiper-3.3.1.jquery.min.js'></script>
-    <script src='/static/js/index.js'></script>
+    <script src='/static/js/index_index.js'></script>
 
 </body>
 </html>
