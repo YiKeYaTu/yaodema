@@ -165,7 +165,8 @@ let buyCarController = (function () {
     let defaultId = 0;
     let itemId = buyButton.eq(0).attr('data-item-id');
 
-    let rediectUrl = '/home/order/index';
+    let rediectUrl = '/home/order/index',
+        rediectBuyCarUrl = '/home/order/dish';
     const ADD_ORDER_URL = '/home/order/add_order';
                 
     buyButton
@@ -215,11 +216,18 @@ let buyCarController = (function () {
                     alert(res.errmsg);
                 } else {
 
-                    window.location.href = rediectUrl + `?order_id=${res.data.orderId}`;
+                    window.location.href = `${rediectUrl}?order_id=${res.data.orderId}`;
 
                 }
 
             });
+
+        });
+
+    $('.join')
+        .on('click', (e) => {
+
+            window.location.href = `${rediectBuyCarUrl}?item_id=${itemId}`;
 
         });
 

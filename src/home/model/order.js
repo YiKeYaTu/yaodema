@@ -26,6 +26,7 @@ export default class extends think.model.relation {
 
             .where(conf.where)
             .setRelation(conf.setRelation || true)
+            .order(conf.order || '')
             .select();
 
     }

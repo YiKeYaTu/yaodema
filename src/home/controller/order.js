@@ -70,11 +70,20 @@ export default class extends Base {
         let orderModel = this.model('order'),
             adressModel = this.model('adress');
 
-        let result = await orderModel.getOrderInf({
-            where: {
-                id: orderId,
-            }
-        });
+        let orderInfArr = [];
+
+        orderId = orderId.split('|');
+
+        for (let i = 0, len = orderId.length; i < len; i++) {
+
+            orderInfArr.push(await orderModel.getOrderInf({
+                where: {
+                    id: orderId[i],
+                }
+            }));
+
+        }
+
 
         let adress = await adressModel
 
@@ -85,7 +94,7 @@ export default class extends Base {
             .find();
 
         this.assign({
-            orderInf: result,
+            orderInf: orderInfArr,
             jsTicket: jsTicket,
             adress: adress
         });
@@ -123,9 +132,10 @@ export default class extends Base {
                 where: {
                     od_state: 0,
                     openid: openid
-                }
+                },
+                order: "id DESC"
             });
-        console.log(result);
+
         this.assign('orderInf', result);
 
         return this.display();
@@ -163,7 +173,7 @@ export default class extends Base {
                         id: item.orderId,
                     }
                 });
-                console.log(orderInf);
+                
                 totalFee = orderInf[0].gooddetail.del_prize * item.itemNum;
 
                 if (item.itemNum !== orderInf[0].od_num) {
