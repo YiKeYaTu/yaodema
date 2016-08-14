@@ -27,7 +27,7 @@
 
     let getFlag = true;
 
-    const GET_ITEM_DATA_URL = '';
+    const GET_ITEM_DATA_URL = '/home/index/getnewgoods';
 
     const DISTANCE = windowInnerHeight * 0.1;
     const LOAD_DATA_SPEED = 1000;
@@ -40,21 +40,18 @@
 
         let item;
 
-        res = [1, 1, 1, 1];
-
-        res.forEach((item, index) => {
-
+        res.data.forEach((it, index) => {
             item = $('<div class="item-el"></div>');
             item.html(`
                 <div class="item-image"></div>
                 <div class="item-inf">
-                    深刻忧郁浪漫基诺就像一个旧时代的时代个旧
+                    ${it.descript}
                 </div>
                 <div class="buy-item">
                     <div class="item-price">
                     <span class='item-price-icon'>￥</span>
-                    <span class='item-price-content'>1000</span>
-                    <img class='buy-button' src='../imgs/buy_car_b.png'>
+                    <span class='item-price-content'>${it.prize}</span>
+                    <img class='buy-button' src='/static/imgs/covers/${it.cover}.png'>
                     </div>
                 </div>
             `)
@@ -62,14 +59,14 @@
 
         });
 
-        overLoad();
+        overLoad(res);
 
         getFlag = true;
 
     }
 
     function overLoad (res) {
-        if (res.length === 0) {
+        if (res.data.length === 0) {
             clearInterval(timer);
             $('.loading-msg')
                 .html('没有更多了');
@@ -92,6 +89,6 @@
         }
     }
 
-    // let timer = setInterval(loadData, LOAD_DATA_SPEED);
+    let timer = setInterval(loadData, LOAD_DATA_SPEED);
 
 }());

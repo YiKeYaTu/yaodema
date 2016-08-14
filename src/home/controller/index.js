@@ -27,14 +27,18 @@ export default class extends Base {
 
         // await wx._getAccessTokenForUser(http);
         let config = {};
+        let goods = this.model('goods');
 
-        config.topCover = this.model('goods').getTopCover();
+        config.topCover = await goods.getTopCover();
 
-        config.goodsType = this.model('goods').getGoodsType();
+        config.goodsType = await goods.getGoodsType();
         
-        // config.hotGoods = this.getHotGoods();
+        config.hotGoods = await goods.getHotGoods(2);
 
-        // config.newGoods = this.getNewGoods();
+        config.newGoods = await goods.getNewGoods(2);
+
+        this.assign('data', config);
+        console.log(config.hotGoods);
         
         return this.display();
     }
@@ -55,6 +59,12 @@ export default class extends Base {
     async postAction () {
         let data = await this.http.getPayload();
         console.log(data);
+    }
+
+    async getnewgoodsAction(){
+        let time = this.get('pageNum') || 0;
+        let data = await this.model('goods').getNewGoods(2, time);
+        this.success(data);
     }
 
 }
