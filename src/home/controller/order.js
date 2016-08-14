@@ -14,6 +14,43 @@ let wxPay = new wxPayService();
 
 export default class extends Base {
 
+    async addOrderAction () {
+
+        let goodsId = this.post('goods_id'),
+            odNum = this.post('od_num'),
+            orderNo = produceOutTradeNo(),
+            userInf = await this.checkUserInf();
+
+        if (!userInf.openid) return this.fail(10001);
+        if (!Number.isInteger(odNum) || odNum <= 0) return this.fail(10002);
+
+        let gooddetailModel = this.model('gooddetail');
+
+        if (await gooddetailModel.where({
+            id: goodsId
+        }).find()) {
+
+            let orderModel = this.model('order');
+
+            await orderModel.add({
+                openid: userInf.openid,
+                del_id: goodsId,
+                od_num: odNum,
+                od_ticket: orderNo,
+                od_state: 0,
+                od_adress_id: ''
+            });
+
+            this.success();
+
+        } else {
+
+            return this.fail(10001);
+
+        }
+
+    }
+
     async indexAction () {
 
         let userInf = await this,
