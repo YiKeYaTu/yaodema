@@ -54,7 +54,7 @@ export default class extends think.controller.base {
         let wx = new wxService(); 
 
         let http = this.http;
-        console.log(http.host + http.url.slice(0, -1));
+        console.log(http.host + http.url);
         let userInf = await wx.getUserInf(
             false,
             http, 
