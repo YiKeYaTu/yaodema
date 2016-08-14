@@ -19,7 +19,7 @@ export default class extends Base {
         let goodsId = this.post('goods_id'),
             odNum = parseInt(this.post('od_num')),
             orderNo = produceOutTradeNo(),
-            userInf = /*await this.checkUserInf()*/{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'};
+            userInf = await this.checkUserInf()/*{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'}*/;
 
         if (!userInf.openid) return this.fail(10001);
 
@@ -55,9 +55,9 @@ export default class extends Base {
 
     }
 
-    async indexAction () {
+    async payAction () {
 
-        let userInf = await this,
+        let userInf = await this.checkUserInf(),
             jsTicket = await this.checkJsSdk();
 
         let orderId = this.get('order_id');
@@ -65,7 +65,7 @@ export default class extends Base {
         if (!userInf) return this.fail(10001);
         // let 
 
-        let openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4' /*userInf.openid*/;
+        let openid = /*'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'*/ userInf.openid;
 
         let orderModel = this.model('order'),
             adressModel = this.model('adress');
@@ -99,14 +99,14 @@ export default class extends Base {
             adress: adress
         });
 
-        return this.display();
+        return this.display('index');
 
     }
 
     async listAction () {
 
-        let userInf = await this,
-            openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4';
+        let userInf = await this.checkUserInf(),
+            openid = userInf.openid;
 
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
@@ -124,8 +124,8 @@ export default class extends Base {
 
     async dishAction () {
 
-        let userInf = await this,
-            openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4';
+        let userInf = await this.checkUserInf(),
+            openid = userInf.openid;
 
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
@@ -150,9 +150,9 @@ export default class extends Base {
 
         let http = this.http;
 
-        // let userInf = await this.checkUserInf();
+        let userInf = await this.checkUserInf();
 
-        let openid = /*userInf.openid*/'oDNUjwV7l6KYEaEaBlWWSSn4Nel4',
+        let openid = userInf.openid,
             res;
 
         if (openid) {
@@ -195,7 +195,7 @@ export default class extends Base {
             res = await wxPay.getPayJSticketInf({
                 openid: openid,
                 total_fee: totalFee,
-                spbill_create_ip: /*getClientIp(http.req)*/ '127.0.0.1',
+                spbill_create_ip: getClientIp(http.req) ,
                 out_trade_no: produceOutTradeNo(),
                 notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
             });
