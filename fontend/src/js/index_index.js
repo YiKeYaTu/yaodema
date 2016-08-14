@@ -43,7 +43,9 @@
         res.data.forEach((it, index) => {
             item = $('<div class="item-el"></div>');
             item.html(`
+                <a href="/home/detail/index?item-id=${it.goodsId}">
                 <div class="item-image" style="background: url(/static/imgs/covers/${it.cover}) no-repeat; background-size: cover;"></div>
+                </a>
                 <div class="item-inf">
                     ${it.descript}
                 </div>

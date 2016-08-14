@@ -41,9 +41,11 @@ export default class extends think.model.relation {
     let hotGoods = await this.model('goods')
                       .order('g_sold desc')
                       .limit(num)
+                      .field('id')
                       .select();
     for(let i = 0; i < hotGoods.length; i++){
       data[i] = {};
+      data[i].goodsId = hotGoods[i].id;
       data[i].descript = hotGoods[i].g_descript;
       let tempPrize = await this.model('gooddetail')
                             .where({
@@ -74,9 +76,11 @@ export default class extends think.model.relation {
     let hotGoods = await this.model('goods')
                       .order('g_time desc')
                       .limit(time*num, num)
+                      .field('id, g_descript')
                       .select();
     for(let i = 0; i < hotGoods.length; i++){
       data[i] = {};
+      data[i].goodsId = hotGoods[i].id;
       data[i].descript = hotGoods[i].g_descript;
       let tempPrize = await this.model('gooddetail')
                             .where({

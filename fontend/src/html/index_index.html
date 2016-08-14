@@ -35,7 +35,10 @@
         </section>
         <section class='item-container'>
             <div class="item-el">
-                <div class="item-image" style="background:url(/static/imgs/covers/<%= data.hotGoods[0].cover%>) no-repeat; background-size:100% 100%"></div>
+                <a href="/home/detail/index?item-id=<%= data.hotGoods[0].goodsId%>">
+                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.hotGoods[0].cover%>) no-repeat; background-size:100% 100%">
+                    </div>
+                </a>
                 <div class="item-inf">
                     <%= data.hotGoods[0].descript%>
                 </div>
@@ -48,7 +51,10 @@
                 </div>
             </div>
             <div class="item-el">
-                <div class="item-image" style="background:url(/static/imgs/covers/<%= data.hotGoods[1].cover%>) no-repeat; background-size:100% 100%"></div>
+                <a href="/home/detail/index?item-id=<%= data.hotGoods[1].goodsId%>">
+                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.hotGoods[1].cover%>) no-repeat; background-size:100% 100%">
+                    </div>
+                </a>
                 <div class="item-inf">
                     <%= data.hotGoods[1].descript%>
                 </div>
@@ -68,7 +74,9 @@
         </section>
         <section class='item-container'>
             <div class="item-el">
-                <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[0].cover%>) no-repeat; background-size:100% 100%"></div>
+                <a href="/home/detail/index?item-id=<%= data.newGoods[0].goodsId%>">
+                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[0].cover%>) no-repeat; background-size:100% 100%"></div>
+                </a>
                 <div class="item-inf">
                     <%= data.newGoods[0].descript%>
                 </div>
@@ -81,7 +89,9 @@
                 </div>
             </div>
             <div class="item-el">
-                <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[1].cover%>) no-repeat; background-size:100% 100%"></div>
+                <a href="/home/detail/index?item-id=<%= data.newGoods[1].goodsId%>">
+                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[1].cover%>) no-repeat; background-size:100% 100%"></div>
+                </a>
                 <div class="item-inf">
                     <%= data.newGoods[1].descript%>
                 </div>
