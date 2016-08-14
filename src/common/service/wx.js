@@ -66,11 +66,11 @@ export default class extends think.service.base {
             }, {
                 type: 'view',
                 name: '特产商城',
-                url: 'http://www.duwonders.cn',
+                url: 'http://www.hangeer1996.com',
               }, {
                 type: 'view',
                 name: '我的订单',
-                url: 'http://www.duwonders.cn',
+                url: 'http://www.hangeer1996.com/home/order/dish',
             }]
         };
 
