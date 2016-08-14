@@ -46,7 +46,7 @@ export default class extends think.model.relation {
     let hotGoods = await this.model('goods')
                       .order('g_sold desc')
                       .limit(num)
-                      .field('id')
+                      .field('id, g_descript')
                       .select();
     for(let i = 0; i < hotGoods.length; i++){
       data[i] = {};
