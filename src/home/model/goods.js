@@ -15,14 +15,16 @@ export default class extends think.model.relation {
   }
 
   async getTopCover(){
-    let ids = await this.model('goods')
-                      .setRelation(false)
-                      .order('g_sold desc')
-                      .limit(5).field('id')
-                      .select();
+    let ids = await this
+                    .model('goods')
+                    .setRelation(false)
+                    .order('g_sold desc')
+                    .limit(5).field('id')
+                    .select();
     let urls = [];
     for(let i = 0; i < ids.length; i++){
-      urls[i] = await this.model('cover')
+      urls[i] = await this
+                      .model('cover')
                       .where({'g_id': ids[i].id})
                       .field('url')
                       .limit(1)
@@ -32,9 +34,10 @@ export default class extends think.model.relation {
   }
 
   async getGoodsType(){
-    let data = await this.model('goodstype')
-                      .field('gt_name')
-                      .select();
+    let data = await this
+                     .model('goodstype')
+                     .field('gt_name')
+                     .select();
     return data;
   }
   /**
@@ -43,16 +46,18 @@ export default class extends think.model.relation {
    */
   async getHotGoods(num){
     let data = [];
-    let hotGoods = await this.model('goods')
-                      .order('g_sold desc')
-                      .limit(num)
-                      .field('id, g_descript')
-                      .select();
+    let hotGoods = await this
+                         .model('goods')
+                         .order('g_sold desc')
+                         .limit(num)
+                         .field('id, g_descript')
+                         .select();
     for(let i = 0; i < hotGoods.length; i++){
       data[i] = {};
       data[i].goodsId = hotGoods[i].id;
       data[i].descript = hotGoods[i].g_descript;
-      let tempPrize = await this.model('gooddetail')
+      let tempPrize = await this
+                            .model('gooddetail')
                             .where({
                               'g_id': hotGoods[i].id
                             })
@@ -60,7 +65,8 @@ export default class extends think.model.relation {
                             .limit(1)
                             .select();
       data[i].prize = tempPrize[0].del_prize;
-      let tempCover = await this.model('cover')
+      let tempCover = await this
+                            .model('cover')
                             .where({
                               'g_id': hotGoods[i].id
                             })
@@ -78,16 +84,18 @@ export default class extends think.model.relation {
    */
   async getNewGoods(num, time=0){
     let data = [];
-    let hotGoods = await this.model('goods')
-                      .order('g_time desc')
-                      .limit(time*num, num)
-                      .field('id, g_descript')
-                      .select();
+    let hotGoods = await this
+                         .model('goods')
+                         .order('g_time desc')
+                         .limit(time*num, num)
+                         .field('id, g_descript')
+                         .select();
     for(let i = 0; i < hotGoods.length; i++){
       data[i] = {};
       data[i].goodsId = hotGoods[i].id;
       data[i].descript = hotGoods[i].g_descript;
-      let tempPrize = await this.model('gooddetail')
+      let tempPrize = await this
+                            .model('gooddetail')
                             .where({
                               'g_id': hotGoods[i].id
                             })
@@ -95,7 +103,8 @@ export default class extends think.model.relation {
                             .limit(1)
                             .select();
       data[i].prize = tempPrize[0].del_prize;
-      let tempCover = await this.model('cover')
+      let tempCover = await this
+                            .model('cover')
                             .where({
                               'g_id': hotGoods[i].id
                             })

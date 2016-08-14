@@ -18,7 +18,7 @@ export default class extends Base {
             userCall = this.post('user-call'),
             userAdress = this.post('user-adress');
 
-        let userId = await this.getUserId();
+        let userInf = await this.checkUserInf(); 
 
         if (!userInf) {
 
@@ -33,17 +33,50 @@ export default class extends Base {
             'user_call': userCall,
             'ad_detail': userAdress,
             'is_default': 0,
-            'user_id': userId
+            'user_id': userInf.openid
         });
 
         return this.success();
 
     }
 
-    chooseAction () {
+    async chooseAction () {
+
+        // let userInf = await this.checkUserInf();
+
+        // let data = this.model('adress').getAdress(userInf.openid);
+        
+        let data = await this.model('adress').getAdress(2);
+
+        this.assign('data', data);
 
         return this.display();
 
+    }
+
+    async deleteAction(){
+
+        // let userInf = await this.checkUserInf();
+
+        // let data = this.model('adress').getAdress(userInf.openid);
+
+        let id = this.get('id');
+
+        await this.model('adress').deleteOne(id, 2);  //  这里应该传用户openid
+
+        this.redirect('/home/adress/choose');
+    }
+
+    async setdefaultAction(){
+        // let userInf = await this.checkUserInf();
+
+        // let data = this.model('adress').getAdress(userInf.openid);
+
+        let id = this.get('id');
+
+        await this.model('adress').setDefault(id, 2);  //  这里应该传用户openid
+
+        this.redirect('/home/adress/choose');
     }
     
 }

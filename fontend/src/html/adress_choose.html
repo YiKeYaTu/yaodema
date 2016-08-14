@@ -7,35 +7,47 @@
     <link rel="stylesheet" type="text/css" href="/static/styles/choose_adress.css">
 </head>
 <body>
+    <%data.forEach(function(item){%>
     <section class='adress-box'>
         <div class="user-inf-box">
             <span class="user-name">
-                黄详康
+                <%= item.user_name%>
             </span>
             <span class="user-callnumber">
-                1888888888
+                 <%= item.user_call%>
             </span>
         </div>
         <div class="user-adress-box">
             <p class="user-detail-adress">
-                北京市东花市北里20号楼6单元501室北京市东花市北里20号楼6单元501室
+                 <%= item.ad_detail%>
             </p>
         </div>
         <div class="user-input-box">
             <div class="normal-adress">
+                <%if(item.is_default){%>
                 <img src="/static/imgs/choose_adress_x.png" class="user-icon"></img>
-                <span class='adress-inf'>默认地址</span>
+                <%}else{%>
+                <span class="default-cercle user-icon"></span>
+                <%}%>
+                <span class='adress-inf'>
+                    <a href="/home/adress/setdefault?id=<%= item.id%>">默认地址</a>
+                </span>
             </div>
             <div class="editor">
                 <img src="/static/imgs/editor.png" class="user-icon"></img>
-                <span class='editor-inf'>编辑地址</span>
+                <span class='editor-inf'>
+                    <a href="/home/adress/add">编辑地址</a>
+                </span>
             </div>
             <div class="delete">
                 <img src="/static/imgs/delete.png" class="user-icon"></img>
-                <span class='delete-inf'>删除地址</span>
+                <span class='delete-inf'>
+                    <a href="/home/adress/delete?id=<%= item.id%>">删除地址</a>
+                </span>
             </div>
         </div>
     </section>
+    <%})%>
     <a class="add-adress" href="">
         添加地址
     </a>
