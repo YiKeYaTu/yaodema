@@ -9,6 +9,8 @@ export default class extends Base {
    */
     async indexAction(){
 
+        await this.checkUserInf();
+
         let itemId = this.get('item_id');
 
         if (!itemId) return this.fail(10002);
