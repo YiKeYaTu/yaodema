@@ -23,7 +23,7 @@
 
         loadController.show();
 
-        $.post('/home/adress/add_adress_inf' + window.location.search, data, (res) => {
+        $.post('/home/adress/add_adress_inf', data, (res) => {
 
             callback(res.errno);
 

@@ -100,7 +100,8 @@ export default class extends Base {
         this.assign({
             orderInf: orderInfArr,
             jsTicket: jsTicket,
-            adress: adress
+            adress: adress,
+            orderId: orderId
         });
 
         return this.display('index');
