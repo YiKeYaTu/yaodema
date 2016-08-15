@@ -34,7 +34,7 @@ export default class extends Base {
             'user_call': userCall,
             'ad_detail': userAdress,
             'is_default': 0,
-            'user_id': userInf.openid
+            'openid': userInf.openid
         });
 
         return this.success();
