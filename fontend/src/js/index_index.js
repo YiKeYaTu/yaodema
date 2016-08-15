@@ -53,10 +53,10 @@
                     <div class="item-price">
                     <span class='item-price-icon'>￥</span>
                     <span class='item-price-content'>${it.prize}</span>
-                    <img class='buy-button' src='/static/imgs/buy_car_b.png'>
+                    <img class='buy-button' src='/static/imgs/buy_car_b.png' data-itemId='${it.goodsId}'>
                     </div>
                 </div>
-            `)
+            `);
             item.appendTo(itemOuter);
 
         });
@@ -94,12 +94,19 @@
     let timer = setInterval(loadData, LOAD_DATA_SPEED);
 
 }());
-/**
- * 添加到购物车
- */
 
-;(function(){
-    $('.buy-button').on('click', function(e){
-        $('#shadow').css({'display: block'});
-    })
+
+(function () {
+
+    $('body')
+        .on('click', function (e) {
+
+            let target = $(e.target);
+
+            if (target.hasClass('buy-button')) {
+                window.location.href = `/home/order/dish?item_id=${parseInt(target.attr('data-itemId'))}`;
+            }
+
+        })
+
 }());
