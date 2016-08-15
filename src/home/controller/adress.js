@@ -25,6 +25,7 @@ export default class extends Base {
             return this.fail(10001)
 
         }
+        console.log(userInf);
 
         let adressModel = this.model('adress');
 
