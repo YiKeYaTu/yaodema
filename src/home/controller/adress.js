@@ -79,7 +79,7 @@ export default class extends Base {
 
         await this.model('adress').setDefault(id, userInf.openid);  //  这里应该传用户openid
 
-        this.redirect(`/home/order/index?order_id=${this.get('order_id')}`);
+        this.redirect(`/home/order/pay?order_id=${this.get('order_id')}`);
     }
     
 }
