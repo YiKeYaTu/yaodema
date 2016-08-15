@@ -36,7 +36,7 @@
         switch (status) {
 
             case 0:
-                window.location.href = `/home/order/pay${window.location.search}`;
+                window.location.href = '/home/order/pay' + window.location.search;
                 break;
             case 10002:
                 alert('信息格式填写错误');
