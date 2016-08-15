@@ -163,7 +163,7 @@ let buyCarController = (function () {
     let defaultId = 0;
     let itemId = buyButton.eq(0).attr('data-item-id');
 
-    let rediectUrl = '/home/order/pay',
+    let rediectUrl = '/home/order/pay/',
         rediectBuyCarUrl = '/home/order/dish';
     const ADD_ORDER_URL = '/home/order/add_order';
                 
