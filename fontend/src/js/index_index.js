@@ -103,7 +103,7 @@
             let target = $(e.target);
 
             if (target.hasClass('buy-button')) {
-                window.location.href = `/home/order/dish?item_id=${target.attr()}`;
+                window.location.href = `/home/order/dish?item_id=${parseInt(target.attr('item_id'))}`;
             }
 
         })
