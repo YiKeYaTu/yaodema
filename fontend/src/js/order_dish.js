@@ -124,3 +124,13 @@ let orderKeeper = (function () {
         });
 
 }());
+
+(function () {
+
+    $('.no-pay').on('click', () => {
+
+        window.location.href = '/home/order/list';
+
+    })
+
+}());

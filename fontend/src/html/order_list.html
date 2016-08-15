@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="top">
-        <span>已付款</span>
+        <span class="already-pay">已付款</span>
         <span class="arrow-down"></span>
     </div>
     <% orderInf.forEach(function (item, index) { %>
@@ -33,5 +33,19 @@
         </div>
     </div>
     <% }) %>
+    <script src='/static/js/zepto.min.js'></script>
+    <script>
+        
+        (function () {
+
+            $('.already-pay').on('click', () => {
+
+                window.location.href = '/home/order/list';
+
+            })
+
+        }());
+
+    </script>
 </body>
 </html>
