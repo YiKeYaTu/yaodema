@@ -6,7 +6,7 @@ export default class extends Base {
 
     async addAction () {
 
-        await this.checkUserInf();
+        // await this.checkUserInf();
 
         return this.display();
 
@@ -29,11 +29,11 @@ export default class extends Base {
 
         let adressModel = this.model('adress');
 
-        await adressModel.add({
+        let id = await adressModel.add({
             'user_name': userName,
             'user_call': userCall,
             'ad_detail': userAdress,
-            'is_default': 0,
+            'is_default': 1,
             'openid': userInf.openid
         });
 
@@ -77,7 +77,7 @@ export default class extends Base {
 
         await this.model('adress').setDefault(id, userInf.openid);  //  这里应该传用户openid
 
-        this.redirect('/home/adress/choose');
+        this.redirect(`/home/order/index?order_id=${this.get('order_id')}`);
     }
     
 }
