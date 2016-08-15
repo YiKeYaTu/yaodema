@@ -18,14 +18,14 @@ export default class extends Base {
             userCall = this.post('user-call'),
             userAdress = this.post('user-adress');
 
-        // let userInf = await this.checkUserInf(); 
+        let userInf = await this.checkUserInf(); 
 
-        // if (!userInf) {
+        if (!userInf) {
 
-        //     return this.fail(10001)
+            return this.fail(10001)
 
-        // }
-        // console.log(userInf);
+        }
+        console.log(userInf);
 
         let adressModel = this.model('adress');
 
@@ -34,7 +34,7 @@ export default class extends Base {
             'user_call': userCall,
             'ad_detail': userAdress,
             'is_default': 0,
-            'openid': 2
+            'openid': userInf.openid
         });
 
         await this.model('adress').setDefault(id, userInf.openid);
@@ -60,26 +60,26 @@ export default class extends Base {
 
     async deleteAction(){
 
-        // let userInf = await this.checkUserInf();
+        let userInf = await this.checkUserInf();
 
-        // let data = this.model('adress').getAdress(userInf.openid);
+        let data = this.model('adress').getAdress(userInf.openid);
 
         let id = this.get('id');
 
-        await this.model('adress').deleteOne(id, 2);  //  这里应该传用户openid
+        await this.model('adress').deleteOne(id, userInf);  //  这里应该传用户openid
 
         this.redirect(`/home/adress/choose?order_id=${this.get('order_id')}`);
     }
 
     async setdefaultAction(){
-        // let userInf = await this.checkUserInf();
+        let userInf = await this.checkUserInf();
 
-        // let data = this.model('adress').getAdress(userInf.openid);
+        let data = this.model('adress').getAdress(userInf.openid);
 
         let id = this.get('id');
         console.log('我擦你嘛' + this.get('order_id'));
 
-        await this.model('adress').setDefault(id, 2);  //  这里应该传用户openid
+        await this.model('adress').setDefault(id, userInf.openid);  //  这里应该传用户openid
 
         this.redirect(`/home/order/pay/?order_id=${this.get('order_id')}`);
     }
