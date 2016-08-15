@@ -10,7 +10,7 @@ export default class extends Base {
     async indexAction(){
 
 
-        await this.checkUserInf();
+        // await this.checkUserInf();
     //auto render template file index_index.html
     
         // let wxService = think.service("wx");
@@ -29,6 +29,7 @@ export default class extends Base {
         // console.log(jsTicket);
         // this.assign('jsTicket', jsTicket);
 
+
         // await wx._getAccessTokenForUser(http);
         let config = {};
         let goods = this.model('goods');
@@ -42,7 +43,7 @@ export default class extends Base {
         config.newGoods = await goods.getNewGoods(2);
 
         this.assign('data', config);
-        console.log(config.hotGoods);
+        console.log(config);
         
         return this.display();
     }

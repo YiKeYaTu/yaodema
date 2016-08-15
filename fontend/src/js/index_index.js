@@ -94,3 +94,12 @@
     let timer = setInterval(loadData, LOAD_DATA_SPEED);
 
 }());
+/**
+ * 添加到购物车
+ */
+
+;(function(){
+    $('.buy-button').on('click', function(e){
+        $('#shadow').css({'display: block'});
+    })
+}());

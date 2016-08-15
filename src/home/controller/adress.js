@@ -18,14 +18,14 @@ export default class extends Base {
             userCall = this.post('user-call'),
             userAdress = this.post('user-adress');
 
-        let userInf = await this.checkUserInf(); 
+        // let userInf = await this.checkUserInf(); 
 
-        if (!userInf) {
+        // if (!userInf) {
 
-            return this.fail(10001)
+        //     return this.fail(10001)
 
-        }
-        console.log(userInf);
+        // }
+        // console.log(userInf);
 
         let adressModel = this.model('adress');
 
@@ -34,7 +34,7 @@ export default class extends Base {
             'user_call': userCall,
             'ad_detail': userAdress,
             'is_default': 0,
-            'openid': userInf.openid
+            'openid': 2
         });
 
         return this.success();
@@ -43,11 +43,11 @@ export default class extends Base {
 
     async chooseAction () {
 
-        let userInf = await this.checkUserInf();
+        // let userInf = await this.checkUserInf();
 
-        let data = this.model('adress').getAdress(userInf.openid);
+        // let data = this.model('adress').getAdress(userInf.openid);
         
-        // let data = await this.model('adress').getAdress(2);
+        let data = await this.model('adress').getAdress(2);
 
         this.assign('data', data);
 
@@ -57,25 +57,25 @@ export default class extends Base {
 
     async deleteAction(){
 
-        let userInf = await this.checkUserInf();
+        // let userInf = await this.checkUserInf();
 
-        let data = this.model('adress').getAdress(userInf.openid);
+        // let data = this.model('adress').getAdress(userInf.openid);
 
         let id = this.get('id');
 
-        await this.model('adress').deleteOne(id, userInf.openid);  //  这里应该传用户openid
+        await this.model('adress').deleteOne(id, 2);  //  这里应该传用户openid
 
         this.redirect('/home/adress/choose');
     }
 
     async setdefaultAction(){
-        let userInf = await this.checkUserInf();
+        // let userInf = await this.checkUserInf();
 
-        let data = this.model('adress').getAdress(userInf.openid);
+        // let data = this.model('adress').getAdress(userInf.openid);
 
         let id = this.get('id');
 
-        await this.model('adress').setDefault(id, userInf.openid);  //  这里应该传用户openid
+        await this.model('adress').setDefault(id, 2);  //  这里应该传用户openid
 
         this.redirect('/home/adress/choose');
     }
