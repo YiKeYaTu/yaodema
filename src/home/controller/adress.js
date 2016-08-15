@@ -48,10 +48,12 @@ export default class extends Base {
         let userInf = await this.checkUserInf();
 
         let data = this.model('adress').getAdress(userInf.openid);
+        let orderId = this.get('order_id');
         
         // let data = await this.model('adress').getAdress(2);
 
         this.assign('data', data);
+        this.assign('orderId', orderId);
 
         return this.display();
 
