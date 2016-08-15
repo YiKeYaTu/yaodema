@@ -56,7 +56,7 @@
                     <img class='buy-button' src='/static/imgs/buy_car_b.png' data-itemId='${it.goodsId}'>
                     </div>
                 </div>
-            `)
+            `);
             item.appendTo(itemOuter);
 
         });
