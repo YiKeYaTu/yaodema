@@ -13,10 +13,10 @@ export default class extends Base {
         await this.checkUserInf();
     //auto render template file index_index.html
     
-        // let wxService = think.service("wx");
-        // let wx = new wxService();
+        let wxService = think.service("wx");
+        let wx = new wxService();
 
-        // await wx.createMenu();
+        await wx.createMenu();
         // let http = this.http;
 
         // await wx.getUserInf(
