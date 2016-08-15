@@ -57,7 +57,7 @@ export default class extends Base {
 
     async payAction () {
 
-        let userInf = await this,
+        let userInf = await this.checkUserInf(),
             jsTicket = await this.checkJsSdk();
 
         let orderId = this.get('order_id');
@@ -65,7 +65,7 @@ export default class extends Base {
         if (!userInf) return this.fail(10001);
         // let 
 
-        let openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4' /*userInf.openid*/;
+        let openid = /*'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'*/ userInf.openid;
 
         let orderModel = this.model('order'),
             adressModel = this.model('adress');
