@@ -8,6 +8,7 @@
 </head>
 <body>
     <section class='adress-box'>
+        <% if (adress.user_name) { %>
         <div class="user-inf-box">
             <span class="user-name">
                 <%= adress.user_name %>
@@ -21,7 +22,12 @@
                 <%= adress.ad_detail %>
             </p>
         </div>
-        <a class="add-new-adress" href="">
+        <% } else {%>
+
+            <span class="user-name" style="text-align: center">请添加收货地址</span>
+
+        <% } %>
+        <a class="add-new-adress" href="/home/adress/choose">
             <div class="add-icon"></div>
             <span class="add-inf">新增收货地址</span>
         </a>
