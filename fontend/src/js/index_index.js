@@ -53,7 +53,7 @@
                     <div class="item-price">
                     <span class='item-price-icon'>￥</span>
                     <span class='item-price-content'>${it.prize}</span>
-                    <img class='buy-button' src='/static/imgs/buy_car_b.png data-itemId=${it.goodsId}'>
+                    <img class='buy-button' src='/static/imgs/buy_car_b.png' data-itemId='${it.goodsId}'>
                     </div>
                 </div>
             `)
