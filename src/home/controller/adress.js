@@ -29,7 +29,7 @@ export default class extends Base {
 
         let adressModel = this.model('adress');
 
-        await adressModel.add({
+        let id = await adressModel.add({
             'user_name': userName,
             'user_call': userCall,
             'ad_detail': userAdress,
@@ -37,19 +37,22 @@ export default class extends Base {
             'openid': 2
         });
 
+        await this.model('adress').setDefault(id, userInf.openid);
+
         return this.success();
 
     }
 
     async chooseAction () {
 
-        // let userInf = await this.checkUserInf();
+        let userInf = await this.checkUserInf();
 
-        // let data = this.model('adress').getAdress(userInf.openid);
-        
-        let data = await this.model('adress').getAdress(2);
+        let data = this.model('adress').getAdress(userInf.openid);
+
+        let orderId = this.get('order_id');
 
         this.assign('data', data);
+        this.assign('orderId', orderId);
 
         return this.display();
 
@@ -65,7 +68,7 @@ export default class extends Base {
 
         await this.model('adress').deleteOne(id, 2);  //  这里应该传用户openid
 
-        this.redirect('/home/adress/choose');
+        this.redirect(`/home/adress/choose?order_id=${this.get('order_id')}`);
     }
 
     async setdefaultAction(){
@@ -74,10 +77,11 @@ export default class extends Base {
         // let data = this.model('adress').getAdress(userInf.openid);
 
         let id = this.get('id');
+        console.log('我擦你嘛' + this.get('order_id'));
 
         await this.model('adress').setDefault(id, 2);  //  这里应该传用户openid
 
-        this.redirect('/home/adress/choose');
+        this.redirect(`/home/order/pay/?order_id=${this.get('order_id')}`);
     }
     
 }

@@ -44,7 +44,7 @@ gulp.task('less-task', function() {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(cssmin())
+        // .pipe(cssmin())
         .pipe(gulp.dest(files.dist.less))
         .pipe(gulp.dest('./src/styles'))
         .pipe(reload({

@@ -93,10 +93,15 @@ export default class extends Base {
             })
             .find();
 
+        if (!adress.openid) {
+            return this.redirect(`/home/adress/add?order_id=${orderId}`);
+        }
+
         this.assign({
             orderInf: orderInfArr,
             jsTicket: jsTicket,
-            adress: adress
+            adress: adress,
+            orderId: orderId
         });
 
         return this.display('index');
