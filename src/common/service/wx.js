@@ -62,7 +62,7 @@ export default class extends think.service.base {
             button: [{
                 type: 'view',
                 name: '特产礼包',
-                url: 'http://www.hangeer1996.com',                
+                url: 'http://www.hangeer1996.com/home/detail/index?item_id=2',                
             }, {
                 type: 'view',
                 name: '特产商城',
