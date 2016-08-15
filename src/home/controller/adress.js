@@ -6,7 +6,7 @@ export default class extends Base {
 
     async addAction () {
 
-        // await this.checkUserInf();
+        await this.checkUserInf();
 
         return this.display();
 
@@ -33,9 +33,11 @@ export default class extends Base {
             'user_name': userName,
             'user_call': userCall,
             'ad_detail': userAdress,
-            'is_default': 1,
+            'is_default': 0,
             'openid': userInf.openid
         });
+
+        await this.model('adress').setDefault(id, userInf.openid);
 
         return this.success();
 
