@@ -112,6 +112,33 @@ header {
             width: 100%;
             height: 292 / 64rem;
             background: red;
+            position: relative;
+            .add-to-car {
+                width: 120 / 64rem;
+                height: 120 / 64rem;
+                border-radius: 100%;
+                background: #ccac86 no-repeat;
+                background-image: url("/static/imgs/car.png");
+                background-position: center center;
+                background-size: 65 / 64rem 58 / 64rem;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin: -60 / 64rem -60 / 64rem;
+            }
+            .car-num {
+                width: 44 / 64rem;
+                height: 44 / 64rem;
+                display: block;
+                background: #ff7e0a;
+                border-radius: 100%;
+                display: block;
+                margin-left: 1.5rem;
+                text-align: center;
+                line-height: 44 / 64rem;
+                color: #fff;
+                font-size: 14px;
+            }
         }
         .item-inf {
             color: #7a6868;
@@ -213,6 +240,12 @@ header {
     font-size: 28px !important;
 }
 [data-dpr="3"] .loading-msg {
+    font-size: 42px !important;
+}
+[data-dpr="2"] .car-num {
+    font-size: 28px !important;
+}
+[data-dpr="3"] .car-num {
     font-size: 42px !important;
 }
 @keyframes rotate-loading {

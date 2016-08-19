@@ -11,10 +11,10 @@
         <section class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" style="background: url(/static/imgs/covers/<%= data.topCover[0][0].url%>) no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
-                <div class="swiper-slide" style="left: 100%; background: url(/static/imgs/covers/<%= data.topCover[1][0].url%>) no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
-                <div class="swiper-slide" style="left: 200%; background: url(/static/imgs/covers/<%= data.topCover[2][0].url%>)  no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
-                <div class="swiper-slide" style="left: 300%; background: url(/static/imgs/covers/<%= data.topCover[3][0].url%>) no-repeat center center; background-color: #f0efef; background-size: contain%;"></div>
-                <div class="swiper-slide" style="left: 400%; background: url(/static/imgs/covers/<%= data.topCover[4][0].url%>) no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
+                <div class="swiper-slide" style="background: url(/static/imgs/covers/<%= data.topCover[1][0].url%>) no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
+                <div class="swiper-slide" style="background: url(/static/imgs/covers/<%= data.topCover[2][0].url%>)  no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
+                <div class="swiper-slide" style="background: url(/static/imgs/covers/<%= data.topCover[3][0].url%>) no-repeat center center; background-color: #f0efef; background-size: contain%;"></div>
+                <div class="swiper-slide" style="background: url(/static/imgs/covers/<%= data.topCover[4][0].url%>) no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
             </div>
         </section>
         <section class='banner-bottom'></section>
@@ -37,6 +37,9 @@
             <div class="item-el">
                 <a href="/home/detail/index?item_id=<%= data.hotGoods[0].goodsId%>">
                     <div class="item-image" style="background:url(/static/imgs/covers/<%= data.hotGoods[0].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain">
+                        <div class="add-to-car">
+                            <span class='car-num'>1</span>
+                        </div>
                     </div>
                 </a>
                 <div class="item-inf">
@@ -53,6 +56,9 @@
             <div class="item-el">
                 <a href="/home/detail/index?item_id=<%= data.hotGoods[1].goodsId%>">
                     <div class="item-image" style="background:url(/static/imgs/covers/<%= data.hotGoods[1].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain">
+                        <div class="add-to-car">
+                            <span class='car-num'>1</span>
+                        </div>
                     </div>
                 </a>
                 <div class="item-inf">
@@ -75,7 +81,11 @@
         <section class='item-container'>
             <div class="item-el">
                 <a href="/home/detail/index?item_id=<%= data.newGoods[0].goodsId%>">
-                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[0].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain"></div>
+                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[0].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain">
+                        <div class="add-to-car">
+                            <span class='car-num'>1</span>
+                        </div>
+                    </div>
                 </a>
                 <div class="item-inf">
                     <%= data.newGoods[0].descript%>
@@ -90,7 +100,11 @@
             </div>
             <div class="item-el">
                 <a href="/home/detail/index?item_id=<%= data.newGoods[1].goodsId%>">
-                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[1].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain"></div>
+                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[1].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain">
+                        <div class="add-to-car">
+                            <span class='car-num'>1</span>
+                        </div>
+                    </div>
                 </a>
                 <div class="item-inf">
                     <%= data.newGoods[1].descript%>
@@ -119,6 +133,13 @@
     <script src='/static/js/zepto.min.js'></script>
     <script src='/static/js/swiper-3.3.1.jquery.min.js'></script>
     <script src='/static/js/index_index.js?timer=<%= new Date().getTime()%>'+></script>
-
+    <script>
+        ;(function () {
+            var list = $('.swiper-slide');
+            list.each((index, item) => {
+                $(item).css('left', index * 100 + '%');
+            });
+        }());
+    </script>
 </body>
 </html>

@@ -23,7 +23,6 @@
             <div class="swiper-wrapper">
                 <% itemInf.gooddetail[0].cover.forEach(function (item, index) { %>
                 <div class="swiper-slide" style="
-                    left: <%= index * 100 + '%' %>;
                     background-image: url(/static/imgs/covers/<%= item.url %>);
                 "></div>
                 <% }) %>

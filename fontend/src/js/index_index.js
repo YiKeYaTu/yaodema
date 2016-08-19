@@ -9,6 +9,8 @@
     let mySwiper = new Swiper('.swiper-container', {
         pagination : '.banner-bottom',
         autoplay : SPEED,
+        loop: true,
+        // loopedSlides: 0,
     });
 
 }());
@@ -44,7 +46,11 @@
             item = $('<div class="item-el"></div>');
             item.html(`
                 <a href="/home/detail/index?item_id=${it.goodsId}">
-                <div class="item-image" style="background: url(/static/imgs/covers/${it.cover}) no-repeat; background-size: cover;"></div>
+                <div class="item-image" style="background: url(/static/imgs/covers/${it.cover}) no-repeat; background-size: cover;">
+                    <div class="add-to-car">
+                        <span class='car-num'>1</span>
+                    </div>
+                </div>
                 </a>
                 <div class="item-inf">
                     ${it.descript}

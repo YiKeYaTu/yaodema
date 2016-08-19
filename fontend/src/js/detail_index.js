@@ -2,6 +2,14 @@
  *   @params
  *       初始化swiper
  * */
+
+;(function () {
+    var list = $('.swiper-slide');
+    list.each((index, item) => {
+        $(item).css('left', index * 100 + '%');
+    });
+}());
+ 
 ;(function () {
 
     const SPEED = 5000;
@@ -9,6 +17,7 @@
     let mySwiper = new Swiper('.swiper-container', {
         pagination : '.banner-bottom',
         autoplay : SPEED,
+        loop: true
     });
 
 }());
