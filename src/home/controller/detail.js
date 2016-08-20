@@ -9,7 +9,7 @@ export default class extends Base {
    */
     async indexAction(){
 
-        // await this.checkUserInf();
+        await this.checkUserInf();
 
         let itemId = this.get('item_id');
 
