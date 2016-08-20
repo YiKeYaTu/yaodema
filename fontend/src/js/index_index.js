@@ -101,7 +101,7 @@
 
 (function () {
 
-    $('body').on('click', function (e) {
+    $('img').on('click', function (e) {
 
             let target = $(e.target);
             alert(1);
