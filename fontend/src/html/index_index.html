@@ -7,7 +7,9 @@
     <link rel="stylesheet" type="text/css" href="/static/styles/index.css?time=<%= new Date().getTime() %>">
 </head>
 <body>
-    
+    <div class="add-to-car">
+        <span class='car-num'>0</span>
+    </div>
     <header>
         <section class="swiper-container">
             <div class="swiper-wrapper">
@@ -126,6 +128,11 @@
             list.each(function(index, item){
                 $(item).css('left', index * 100 + '%');
             });
+        }());
+        ;(function(){
+            $('.add-to-car').on('click', function(){
+                window.location.href = "/home/order/dish";
+            })
         }());
     </script>
 </body>
