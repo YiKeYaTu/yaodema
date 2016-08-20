@@ -140,7 +140,19 @@ export default class extends Base {
                 order: "id DESC"
             });
 
+        if(this.get(item_id)){
+            result['addDish'] = await this
+
+                                .model('gooddetail')
+
+                                .where({'id': this.get(item_id)})
+
+                                .select();
+        }
+
         this.assign('orderInf', result);
+
+        console.log(result);
 
         return this.display();
 
