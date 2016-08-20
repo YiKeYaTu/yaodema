@@ -42,7 +42,7 @@
         
         (function () {
             var flag = true;
-            $('.already-pay').on('click', () => {
+            $('.already-pay').on('click', function () {
 
                 $('.top-hidden').css('display', flag ? 'block' : 'none');
                 flag = !flag;
