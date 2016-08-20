@@ -47,9 +47,6 @@
             item.html(`
                 <a href="/home/detail/index?item_id=${it.goodsId}">
                 <div class="item-image" style="background: url(/static/imgs/covers/${it.cover}) no-repeat; background-size: cover;">
-                    <div class="add-to-car">
-                        <span class='car-num'>1</span>
-                    </div>
                 </div>
                 </a>
                 <div class="item-inf">
