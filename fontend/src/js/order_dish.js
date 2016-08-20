@@ -135,6 +135,8 @@ let orderKeeper = (function () {
 
         $(e.target).css({color: '#cc9933', background: '#fff'})
 
+        alert(1);
+
     })
 
     $('.add').on('click', function(){
@@ -146,6 +148,7 @@ let orderKeeper = (function () {
     $('.app').on('click', function(){
 
         if(parseInt($('.no-border').innerHTML) > 0){
+            alert(1);
             console.log($('.no-border').innerHTML);
             console.log(parseInt( $('.no-border').innerHTML ));
             $('.no-border').innerHTML = parseInt( $('.no-border').innerHTML ) - 1;
