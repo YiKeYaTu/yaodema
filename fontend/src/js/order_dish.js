@@ -124,3 +124,27 @@ let orderKeeper = (function () {
         });
 
 }());
+
+(function () {
+
+    $('.kouwei-con').on('click', function(e){
+
+        $(e.target).css({color: '#fff', background: 'rgb(204, 172, 134)'})
+
+    })
+
+}());
+
+(function(){
+
+    $('.add').on('click', function(){
+        $('.no-border').innerHTML = $('.no-border').innerHTML++;
+    })
+
+    $('.app').on('click', function(){
+        $('.no-border').innerHTML = $('.no-border').innerHTML--;
+    })
+
+}())
+
+
