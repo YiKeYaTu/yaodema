@@ -180,8 +180,8 @@ let orderKeeper = (function () {
             timeout: 300,
             context: $('body'),
             success: function(data){
-                // window.location.href = "/home/order/dish";
-                alert('ok');
+                alert('添加购物车成功');
+                window.location.href = "http://www.hangeer1996.com"
             },
             error: function(xhr, type){
               alert('Ajax error!')

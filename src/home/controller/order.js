@@ -21,6 +21,9 @@ export default class extends Base {
             orderNo = produceOutTradeNo(),
             userInf = await this.checkUserInf()/*{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'}*/;
 
+console.log(goodsId);
+console.log(odNum);
+
         if (!userInf.openid) return this.fail(10001);
 
         if (!Number.isInteger(odNum) || odNum <= 0) return this.fail(10002);
