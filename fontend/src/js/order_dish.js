@@ -129,7 +129,7 @@ let orderKeeper = (function () {
 
     $('.kouwei-con').on('click', function(e){
 
-        $('.kouwei-con').children().map(function(i, item){
+        $('.kouwei-con').children('button').map(function(i, item){
 
             $(item).css({color: '#cc9933', background: '#fff'})
 
@@ -142,7 +142,7 @@ let orderKeeper = (function () {
     $('.add').on('click', function(){
 
         if($('.no-border')[0].innerHTML > 0){
-            
+
             $('.no-border')[0].innerHTML = parseInt( $('.no-border')[0].innerHTML ) - 1;
         }
 
