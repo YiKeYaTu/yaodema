@@ -44,7 +44,7 @@
             <p><%= orderInf['addGood'][0].g_name%></p>
         <%}%>
         <div class="kouwei-con">
-        <%if(orderInf['addGooddetail']){%>
+        <%if(orderInf['addGooddetail'].length != 0){%>
             <% orderInf['addGooddetail'].forEach(function (item, index) { %>
                 <button id="<%= item.id%>"><%= item.del_taste%></button>
             <% }) %>
