@@ -14,12 +14,15 @@ let wxPay = new wxPayService();
 
 export default class extends Base {
 
-    async addOrderAction () {
+    async addorderAction () {
 
         let goodsId = this.post('goods_id'),
             odNum = parseInt(this.post('od_num')),
             orderNo = produceOutTradeNo(),
             userInf = await this.checkUserInf()/*{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'}*/;
+
+console.log(goodsId);
+console.log(odNum);
 
         if (!userInf.openid) return this.fail(10001);
 
@@ -94,7 +97,7 @@ export default class extends Base {
             .find();
 
         if (!adress.openid) {
-            return this.redirect(`/home/adress/add?order_id=${orderId}`);
+            return this.redirect(`http://www.hangeer1996.com/home/adress/add?order_id=${orderId}`);
         }
 
         this.assign({
@@ -130,7 +133,6 @@ export default class extends Base {
 
         let userInf = await this.checkUserInf(),
             openid = userInf.openid;
-
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
                 where: {
