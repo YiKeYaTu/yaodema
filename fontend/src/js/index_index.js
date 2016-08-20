@@ -104,10 +104,9 @@
     $('img').on('click', function (e) {
 
             let target = $(e.target);
-            alert(1);
+
             if (target.hasClass('buy-button')) {
-                alert(2);
-                alert(target.attr('data-itemId'));
+                
                 window.location.href = `/home/order/dish?item_id=${parseInt(target.attr('data-itemId'))}`;
             }
 
