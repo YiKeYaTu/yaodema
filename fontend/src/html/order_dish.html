@@ -40,11 +40,15 @@
         </div>
     <% }) %>
     <div id="bottom">
-        <p><%= orderInf['addGood'][0].g_name%></p>
+        <%if(orderInf['addGood'][0].g_name){%>
+            <p><%= orderInf['addGood'][0].g_name%></p>
+        <%}%>
         <div class="kouwei-con">
-        <% orderInf['addGooddetail'].forEach(function (item, index) { %>
-            <button id="<%= item.id%>"><%= item.del_taste%></button>
-        <% }) %>
+        <%if(orderInf['addGooddetail']){%>
+            <% orderInf['addGooddetail'].forEach(function (item, index) { %>
+                <button id="<%= item.id%>"><%= item.del_taste%></button>
+            <% }) %>
+        <%}%>
         </div>
         <span class="num">购买数量</span>
         <div class="num-con">
