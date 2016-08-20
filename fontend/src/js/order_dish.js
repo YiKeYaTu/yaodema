@@ -124,3 +124,38 @@ let orderKeeper = (function () {
         });
 
 }());
+
+(function () {
+
+    $('.kouwei-con').on('click', function(e){
+
+        $('.kouwei-con').children().map(function(i){
+            $(i).css({color: '#fff', background: 'rgb(204, 172, 134)'})
+        })
+
+        $(e.target).css({color: '#cc9933', background: '#fff'})
+
+        alert(1);
+
+    })
+
+    $('.add').on('click', function(){
+
+        $('.no-border').innerHTML = parseInt( $('.no-border').innerHTML ) + 1;
+
+    });
+    
+    $('.app').on('click', function(){
+
+        if(parseInt($('.no-border').innerHTML) > 0){
+            alert(1);
+            console.log($('.no-border').innerHTML);
+            console.log(parseInt( $('.no-border').innerHTML ));
+            $('.no-border').innerHTML = parseInt( $('.no-border').innerHTML ) - 1;
+
+        }      
+    });
+}());
+
+
+
