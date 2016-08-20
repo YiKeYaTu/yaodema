@@ -94,7 +94,7 @@ export default class extends Base {
             .find();
 
         if (!adress.openid) {
-            return this.redirect(`/home/adress/add?order_id=${orderId}`);
+            return this.redirect(`http://www.hangeer1996.com/home/adress/add?order_id=${orderId}`);
         }
 
         this.assign({
