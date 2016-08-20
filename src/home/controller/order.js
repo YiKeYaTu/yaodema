@@ -110,9 +110,8 @@ export default class extends Base {
 
     async listAction () {
 
-        // let userInf = await this.checkUserInf(),
-        //     openid = userInf.openid;
-        let openid = 2;
+        let userInf = await this.checkUserInf(),
+            openid = userInf.openid;
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
                 where: {
