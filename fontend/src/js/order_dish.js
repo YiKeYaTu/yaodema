@@ -137,24 +137,21 @@ let orderKeeper = (function () {
 
     })
 
-}());
-
-(function(){
-
     $('.add').on('click', function(){
 
-        $('.no-border').innerHTML = parseInt($('.no-border').innerHTML)++;
+        $('.no-border').innerHTML = parseInt( $('.no-border').innerHTML ) + 1;
 
     });
+    
     $('.app').on('click', function(){
 
         if(parseInt($('.no-border').innerHTML) > 0){
 
-            $('.no-border').innerHTML = parseInt($('.no-border').innerHTML)--;
-            
+            $('.no-border').innerHTML = parseInt( $('.no-border').innerHTML ) - 1;
+
         }      
     });
+}());
 
-}())
 
 
