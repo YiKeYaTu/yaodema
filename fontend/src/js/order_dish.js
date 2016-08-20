@@ -129,7 +129,11 @@ let orderKeeper = (function () {
 
     $('.kouwei-con').on('click', function(e){
 
-        $(e.target).css({color: '#fff', background: 'rgb(204, 172, 134)'})
+        $('.kouwei-con').children().map(function(i){
+            i.css({color: '#fff', background: 'rgb(204, 172, 134)'})
+        })
+
+        $(e.target).css({color: '#cc9933', background: '#fff'})
 
     })
 
@@ -138,11 +142,11 @@ let orderKeeper = (function () {
 (function(){
 
     $('.add').on('click', function(){
-        $('.no-border').innerHTML = $('.no-border').innerHTML++;
+        $('.no-border').innerHTML = parseInt($('.no-border').innerHTML)++;
     })
-
     $('.app').on('click', function(){
-        $('.no-border').innerHTML = $('.no-border').innerHTML--;
+        if(parseInt($('.no-border').innerHTML > 0)
+        $('.no-border').innerHTML = parseInt($('.no-border').innerHTML)--;
     })
 
 }())
