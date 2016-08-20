@@ -14,15 +14,12 @@ let wxPay = new wxPayService();
 
 export default class extends Base {
 
-    async addorderAction () {
+    async addOrderAction () {
 
         let goodsId = this.post('goods_id'),
             odNum = parseInt(this.post('od_num')),
             orderNo = produceOutTradeNo(),
             userInf = await this.checkUserInf()/*{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'}*/;
-
-console.log(goodsId);
-console.log(odNum);
 
         if (!userInf.openid) return this.fail(10001);
 
