@@ -40,7 +40,7 @@
         </div>
     <% }) %>
     <div id="bottom">
-        <%if(orderInf['addGood'][0].g_name){%>
+        <%if(orderInf['addGood'].length != 0){%>
             <p><%= orderInf['addGood'][0].g_name%></p>
         <%}%>
         <div class="kouwei-con">
