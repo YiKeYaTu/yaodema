@@ -181,7 +181,7 @@ let orderKeeper = (function () {
             context: $('body'),
             success: function(data){
                 alert('添加购物车成功');
-                window.location.href = "http://www.hangeer1996.com";
+                // window.location.href = "http://www.hangeer1996.com";
             },
             error: function(xhr, type){
               alert('Ajax error!')
