@@ -14,7 +14,7 @@ let wxPay = new wxPayService();
 
 export default class extends Base {
 
-    async addOrderAction () {
+    async addorderAction () {
 
         let goodsId = this.post('goods_id'),
             odNum = parseInt(this.post('od_num')),

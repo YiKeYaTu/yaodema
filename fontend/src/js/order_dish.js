@@ -175,7 +175,7 @@ let orderKeeper = (function () {
 
         $.ajax({
             type: 'POST',
-            url: '/home/order/addOrder',
+            url: 'http://www.hangeer1996.com/home/order/addorder',
             data: { goodsId: id, odNum: num },
             timeout: 300,
             context: $('body'),
