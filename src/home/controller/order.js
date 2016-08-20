@@ -130,7 +130,6 @@ export default class extends Base {
 
         let userInf = await this.checkUserInf(),
             openid = userInf.openid;
-        let openid = 2; 
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
                 where: {
