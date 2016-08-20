@@ -181,6 +181,7 @@ header .banner-bottom .swiper-pagination-bullet-active {
   height: 0.71875rem;
   float: right;
   margin: -0.15625rem 0.3125rem 0 0;
+  z-index: 1000;
 }
 .loading {
   width: 100%;
