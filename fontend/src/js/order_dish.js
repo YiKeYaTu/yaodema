@@ -146,7 +146,8 @@ let orderKeeper = (function () {
     $('.app').on('click', function(){
 
         if(parseInt($('.no-border').innerHTML) > 0){
-
+            console.log($('.no-border').innerHTML);
+            console.log(parseInt( $('.no-border').innerHTML ));
             $('.no-border').innerHTML = parseInt( $('.no-border').innerHTML ) - 1;
 
         }      
