@@ -145,7 +145,7 @@ export default class extends Base {
 
                                 .model('gooddetail')
 
-                                .where({'id': this.get(item_id)})
+                                .where({'g_id': this.get('item_id')})
 
                                 .select();
         }
