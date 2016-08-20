@@ -161,7 +161,7 @@ export default class extends Base {
         this.assign('orderInf', result);
 
         console.log(result['addGooddetail']);
-        console.log(result['aadGodd']);
+        console.log(result['addGood']);
 
         return this.display();
 

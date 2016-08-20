@@ -40,11 +40,11 @@
         </div>
     <% }) %>
     <div id="bottom">
-        <p></p>
+        <p><%= orderInf['addGood'][0].g_name%></p>
         <div class="kouwei-con">
-            <button>口味一</button>
-            <button>口味二</button>
-            <button>口味三</button>
+        <% orderInf['addGooddetail'].forEach(function (item, index) { %>
+            <button><%= item.del_taste%></button>
+        <% }) %>
         </div>
         <span class="num">购买数量</span>
         <div class="num-con">
