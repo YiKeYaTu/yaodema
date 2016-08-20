@@ -130,6 +130,7 @@ let orderKeeper = (function () {
     $('.kouwei-con').on('click', function(e){
 
         $('.kouwei-con').children().map(function(i){
+            console.log(i);
             $(i).css({color: '#fff', background: 'rgb(204, 172, 134)'})
         })
 
