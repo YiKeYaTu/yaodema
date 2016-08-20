@@ -149,10 +149,44 @@ let orderKeeper = (function () {
     });
     
     $('.app').on('click', function(){
-
-        
-            
+ 
             $('.no-border')[0].innerHTML = parseInt( $('.no-border')[0].innerHTML ) + 1;
+
+    });
+
+    $('.confirm').on('click', function(){
+        let id = null;
+        $('.kouwei-con').children('button').map(function(i, item){
+
+            console.log( $(item).css('color') );
+
+            if( $(item).css('color') == 'rgb(255, 255, 255)'){
+                id = item.id;
+            }
+
+        });
+
+        if(!id){
+            alert('请选择口味');
+            return;
+        }
+
+        let num = parseInt($('.no-border')[0].innerHTML);
+
+        $.ajax({
+            type: 'POST',
+            url: '/home/order/addOrder',
+            data: { goodsId: id, odNum: num },
+            timeout: 300,
+            context: $('body'),
+            success: function(data){
+                // window.location.href = "/home/order/dish";
+                alert('ok');
+            },
+            error: function(xhr, type){
+              alert('Ajax error!')
+            }
+        })
 
     });
 }());
