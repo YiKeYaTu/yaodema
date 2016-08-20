@@ -141,18 +141,27 @@ export default class extends Base {
             });
 
         if(this.get('item_id')){
-            result['addDish'] = await this
+            result['addGooddetail'] = await this
 
                                 .model('gooddetail')
 
                                 .where({'g_id': this.get('item_id')})
 
                                 .select();
+
+            result['addGood'] = await this
+
+                                .model('goods')
+
+                                .where({'id': this.get('item_id')})     
+
+                                .select();            
         }
 
         this.assign('orderInf', result);
 
-        console.log(result);
+        console.log(result['addGooddetail']);
+        console.log(result['aadGodd']);
 
         return this.display();
 
