@@ -140,7 +140,7 @@ export default class extends Base {
                 order: "id DESC"
             });
 
-        if(this.get(item_id)){
+        if(this.get('item_id')){
             result['addDish'] = await this
 
                                 .model('gooddetail')
