@@ -94,7 +94,9 @@
     <script src='/static/js/detail_index.js?timer=<%= new Date().getTime() %>'></script>
     <script>
     !(function(){
-        $('.swiper-wrapper').css({transform: "translate3d(0px, 0px, 0px)"})
+        $('.swiper-wrapper').css({transform: "translate3d(0px, 0px, 0px)"});
+
+        $('.swiper-pagination-bullets').css({display: 'flex', justifyContent: 'center'})
     })()
     </script>
 </body>
