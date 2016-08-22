@@ -47,7 +47,7 @@
                 data-index-id="<%= index %>"
                 data-item-id="<%= item.id %>"
                 style="
-                    background: <%= index === 0 ? '#ccac86' : '' %>;
+                    background: <%= index === 0 ? '#ba804a' : '' %>;
                     color: <%= index === 0 ? '#fff' : '' %>;
             "><%= item.del_taste %></button>
         <% }) %>
@@ -92,5 +92,10 @@
     <script src='/static/js/swiper-3.3.1.jquery.min.js'></script>
     <script src='/static/js/loading.js'></script>
     <script src='/static/js/detail_index.js?timer=<%= new Date().getTime() %>'></script>
+    <script>
+    ;(function(){
+        $('.swiper-wrapper').css({tranform: "translate3d(0,0,0)"})
+    })()
+    </script>
 </body>
 </html>

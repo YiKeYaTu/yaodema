@@ -135,10 +135,10 @@ let buyCarController = (function () {
 
             button.eq(defaultId).css({
                 background: '#fff',
-                color: '#ccac86'
+                color: '#ba804a'
             });
             button.eq(buttonId).css({
-                background: '#ccac86',
+                background: '#ba804a',
                 color: '#fff'
             });
 
