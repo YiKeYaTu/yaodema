@@ -119,7 +119,7 @@ export default class extends Base {
                     openid: openid
                 }
             });
-        console.log(result);
+        // console.log(result);
         this.assign('orderInf', result);
 
         return this.display();
@@ -159,8 +159,8 @@ export default class extends Base {
 
         this.assign('orderInf', result);
 
-        console.log(result['addGooddetail']);
-        console.log(result['addGood']);
+        // console.log(result['addGooddetail']);
+        // console.log(result['addGood']);
 
         return this.display();
 
