@@ -246,7 +246,7 @@ export default class extends Base {
         let returnWxXml;
 
         if (wxRexJson.xml.sign[0] === sign) {
-            let orderModel = this.model('user');
+            let orderModel = this.model('order');
             let outRradeNo = wxResXml.out_trade_no;
 
             await orderModel.where({
