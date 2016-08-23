@@ -25,6 +25,8 @@ header .swiper-container .swiper-slide {
   height: 6.25rem;
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center center;
+  background-color: #f0efef;
   position: absolute;
 }
 header .banner-bottom {
