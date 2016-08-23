@@ -246,9 +246,14 @@ export default class extends Base {
         let returnWxXml;
 
         if (wxRexJson.xml.sign[0] === sign) {
+            let orderModel = this.model('user');
+            let outRradeNo = wxResXml.out_trade_no;
 
-            console.log ('支付成功');
-            console.log(wxRexJson);
+            await orderModel.where({
+                od_ticket: outRradeNo
+            }).update({
+                od_state: 1
+            });
 
             returnWxXml = mkXml({
                 rootName: 'xml',
