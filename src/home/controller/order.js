@@ -197,6 +197,8 @@ export default class extends Base {
                         id: item.orderId,
                     }
                 });
+
+                console.log(orderInf);
                 
                 totalFee += orderInf[0].gooddetail.del_prize * item.itemNum;
 
@@ -248,7 +250,10 @@ export default class extends Base {
         if (wxRexJson.xml.sign[0] === sign) {
             let orderModel = this.model('order');
             let outRradeNo = wxRexJson.out_trade_no[0];
-
+            console.log(outRradeNo);
+            console.log(await orderModel.where({
+                od_ticket: outRradeNo
+            }));
             await orderModel.where({
                 od_ticket: outRradeNo
             }).update({
