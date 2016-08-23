@@ -198,7 +198,7 @@ export default class extends Base {
                     }
                 });
                 
-                totalFee = orderInf[0].gooddetail.del_prize * item.itemNum;
+                totalFee += orderInf[0].gooddetail.del_prize * item.itemNum;
 
                 if (item.itemNum !== orderInf[0].od_num) {
 
