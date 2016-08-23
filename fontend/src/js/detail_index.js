@@ -4,20 +4,19 @@
  * */
 
 ;(function () {
+
+    const SPEED = 5000;
+
     var list = $('.swiper-slide');
+
     list.each((index, item) => {
         $(item).css('left', index * 100 + '%');
     });
-}());
- 
-;(function () {
-
-    const SPEED = 5000;
 
     let mySwiper = new Swiper('.swiper-container', {
         pagination : '.banner-bottom',
         autoplay : SPEED,
-        loop: true
+        loop: list.length > 1 ? true : false
     });
 
 }());
