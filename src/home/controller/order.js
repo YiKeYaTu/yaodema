@@ -248,6 +248,7 @@ export default class extends Base {
         if (wxRexJson.xml.sign[0] === sign) {
 
             console.log ('支付成功');
+            console.log(wxRexJson);
 
             returnWxXml = mkXml({
                 rootName: 'xml',
