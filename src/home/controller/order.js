@@ -182,6 +182,8 @@ export default class extends Base {
         if (openid) {
             let orderModel = this.model('order');
 
+            let orderNo = produceOutTradeNo();
+
             let reqJson = await http.getPayload();
             let totalFee = 0; 
             let orderInf;
@@ -196,6 +198,12 @@ export default class extends Base {
                     where: {
                         id: item.orderId,
                     }
+                });
+
+                await orderModel.where({
+                    id: item.orderId
+                }).update({
+                    od_ticket_all: orderNo
                 });
 
                 console.log(orderInf);
@@ -222,7 +230,7 @@ export default class extends Base {
                 openid: openid,
                 total_fee: totalFee,
                 spbill_create_ip: getClientIp(http.req) ,
-                out_trade_no: produceOutTradeNo(),
+                out_trade_no: orderNo,
                 notify_url: 'http://www.hangeer1996.com/home/order/recive_order'
             });
 
@@ -252,10 +260,10 @@ export default class extends Base {
             console.log(wxRexJson.out_trade_no)
             let outRradeNo = wxRexJson.out_trade_no[0];
             console.log(await orderModel.where({
-                od_ticket: outRradeNo
+                od_ticket_all: outRradeNo
             }));
             await orderModel.where({
-                od_ticket: outRradeNo
+                od_ticket_all: outRradeNo
             }).update({
                 od_state: 1
             });
