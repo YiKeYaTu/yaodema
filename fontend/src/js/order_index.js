@@ -42,7 +42,7 @@
                     },
                     
                     function(res){
-                        alert(JSON.stringify(res));
+                        // alert(JSON.stringify(res));
 
                         if(res.err_msg.match(/ok/)) {
 
