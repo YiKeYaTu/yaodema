@@ -256,7 +256,7 @@ export default class extends Base {
         if (wxRexJson.xml.sign[0] === sign) {
             let orderModel = this.model('order');
             console.log(wxRexJson)
-            let outRradeNo = wxRexJson.out_trade_no[0];
+            let outRradeNo = wxRexJson.xml.out_trade_no[0];
             console.log(await orderModel.where({
                 od_ticket_all: outRradeNo
             }));
