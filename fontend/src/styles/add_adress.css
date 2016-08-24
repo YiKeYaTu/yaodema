@@ -30,10 +30,8 @@ input {
   color: #333333;
 }
 textarea {
-  min-width: 7.1875rem;
-  max-width: 7.1875rem;
   min-height: 1.15625rem;
-  max-height: 1.15625rem;
+  width: 90%;
   border: none;
   outline: none;
   margin-left: 0.78125rem;
