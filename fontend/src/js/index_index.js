@@ -106,6 +106,7 @@
             let target = $(e.target);
 
             if (target.hasClass('buy-button')) {
+                console.log(1);
                 
                 window.location.href = `/home/order/dish?item_id=${parseInt(target.attr('data-itemId'))}`;
             }
