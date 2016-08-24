@@ -101,7 +101,7 @@
 
 (function () {
 
-    $('img').on('click', function (e) {
+    $('.item-container').on('click', function (e) {
 
             let target = $(e.target);
 
