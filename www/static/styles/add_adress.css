@@ -29,6 +29,7 @@ input {
   color: #333333;
 }
 textarea {
+  margin-left: 0.15625rem;
   min-height: 1.15625rem;
   width: 90%;
   border: none;
