@@ -21,7 +21,7 @@ section {
 }
 input {
   width: 7.1875rem;
-  height: 1.34375rem;
+  height: 80%;
   line-height: 1.34375rem;
   outline: none;
   margin-left: 0.15625rem;
@@ -34,7 +34,6 @@ textarea {
   width: 85%;
   border: none;
   outline: none;
-  margin-left: 0.78125rem;
   float: right;
   margin-top: 0.4375rem;
 }
