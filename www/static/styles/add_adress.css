@@ -21,7 +21,6 @@ section {
 }
 input {
   width: 7.1875rem;
-  height: 80%;
   line-height: 1.34375rem;
   outline: none;
   margin-left: 0.15625rem;
@@ -31,10 +30,10 @@ input {
 }
 textarea {
   min-height: 1.15625rem;
-  width: 85%;
+  width: 90%;
   border: none;
   outline: none;
-  float: right;
+  float: left;
   margin-top: 0.4375rem;
 }
 .user-name,
