@@ -60,7 +60,7 @@ export default class extends think.service.base {
             // cdataName: 'detail'
         });
 
-        console.log(xml);
+        // console.log(xml);
 
         let res = await request({
             url: URL,
@@ -71,9 +71,9 @@ export default class extends think.service.base {
               }
           });
 
-        console.log('下单微信返回数据为.......');
-        console.log(res);
-        console.log('.......................');
+        // console.log('下单微信返回数据为.......');
+        // console.log(res);
+        // console.log('.......................');
         return res;
 
     }
@@ -110,9 +110,9 @@ export default class extends think.service.base {
               }
           });
 
-        console.log('查询订单后微信返回数据为.......');
-        console.log(res);
-        console.log('............................');
+        // console.log('查询订单后微信返回数据为.......');
+        // console.log(res);
+        // console.log('............................');
 
     }
     /*
@@ -147,9 +147,9 @@ export default class extends think.service.base {
               }
           });
 
-        console.log('关闭订单后微信返回数据为.......');
-        console.log(res);
-        console.log('............................');
+        // console.log('关闭订单后微信返回数据为.......');
+        // console.log(res);
+        // console.log('............................');
 
     }
     /*
