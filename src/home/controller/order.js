@@ -57,8 +57,8 @@ export default class extends Base {
     async deleteOrderAction () {
         let orderList = this.post('order_list').split('|');
 
-        let userInf = await this,
-            openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4';
+        let userInf = await this.checkUserInf(),
+            openid = userInf.openid;
 
         try {
             await this.model('order')
