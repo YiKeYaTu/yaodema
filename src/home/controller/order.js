@@ -321,7 +321,7 @@ export default class extends Base {
             .update({
                 od_state: 2
             })
-            
+        this.json({status: 200});
     }
 
 }
