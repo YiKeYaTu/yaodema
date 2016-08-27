@@ -101,7 +101,7 @@
 
 (function () {
 
-    $('.buy-button').on('click', function (e) {
+    $('body').on('click', function (e) {
 
             let target = $(e.target);
 
