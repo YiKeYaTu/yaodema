@@ -312,6 +312,18 @@ export default class extends Base {
         }
     }
 
+    async confirmAction(){
+
+        this.model('order')
+            .where({
+                id: this.get('id')
+            })
+            .update({
+                od_state: 2
+            })
+            
+    }
+
 }
 
 function parseString (xml) {
