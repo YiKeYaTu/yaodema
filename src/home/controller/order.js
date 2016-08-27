@@ -141,7 +141,7 @@ export default class extends Base {
                     openid: openid
                 }
             });
-        console.log(result);
+        // console.log(result);
         this.assign('orderInf', result);
 
         return this.display();
