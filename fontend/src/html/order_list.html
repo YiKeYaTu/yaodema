@@ -55,10 +55,8 @@
 
         }());
         (function () {
-            alert(1)
             $('.confirm-item').on('click', function(e){
-                alert(2)
-                var id = $(e.target).attr('item-id');
+                var id = $(e.target).attr('order-id');
                 if(id){
                     $.ajax({
                       type: 'GET',
