@@ -112,7 +112,7 @@
 
 (function () {
 
-    $('body').on('click', function (e) {
+    $('.buy-button').on('click', function (e) {
 
             let target = $(e.target);
 
