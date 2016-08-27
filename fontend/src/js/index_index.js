@@ -61,6 +61,17 @@
                 </div>
             `);
             item.appendTo(itemOuter);
+            item.on('click', function (e) {
+
+                let target = $(e.target);
+
+                if (target.hasClass('buy-button')) {
+                    console.log(1);
+                    let id = parseInt( $( target ).attr('data-itemId') );
+                    window.location.href = `/home/order/dish?item_id=${id}`;
+                }
+
+            })
 
         });
 
