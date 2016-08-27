@@ -137,7 +137,7 @@ export default class extends Base {
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
                 where: {
-                    od_state: 1,
+                    od_state: ['IN', [1, 2]],
                     openid: openid
                 }
             });
@@ -310,6 +310,18 @@ export default class extends Base {
             })
             return http.end(returnWxXml);
         }
+    }
+
+    async confirmAction(){
+
+        this.model('order')
+            .where({
+                id: this.get('id')
+            })
+            .update({
+                od_state: 2
+            })
+        this.json({status: 200});
     }
 
 }

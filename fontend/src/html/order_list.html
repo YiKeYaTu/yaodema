@@ -33,7 +33,11 @@
         <div class="button-con">
            <!--  <button>退货退款</button>
             <button class="mid" >查看物流</button>-->
-            <button class="confirm-item">确认收货</button>
+            <%if(item.od_state == 1){%>
+            <button class="confirm-item" order-id="<%=item.id%>">确认收货</button>
+            <%}else{%>
+            <button class="confirm-item">已收货</button>
+            <%}%>
         </div>
     </div>
     <% }) %>
@@ -50,7 +54,26 @@
             })
 
         }());
-
+        (function () {
+            $('.confirm-item').on('click', function(e){
+                var target = e.target;
+                var id = $(target).attr('order-id');
+                if(id){
+                    $.ajax({
+                      type: 'GET',
+                      url: 'http://www.hangeer1996.com/home/order/confirm?id='+id,
+                      timeout: 300,
+                      success: function(data){
+                        target.innerHTML = '已收货';
+                        alert('确认收货成功')
+                      },
+                      error: function(xhr, type){
+                        alert('好像出了点问题-_-||')
+                      }
+                    })
+                }
+            })
+        }());
 
 
     </script>
