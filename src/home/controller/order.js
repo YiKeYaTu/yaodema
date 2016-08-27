@@ -137,7 +137,7 @@ export default class extends Base {
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
                 where: {
-                    od_state: {'>': 0},
+                    od_state: ['IN', [1, 2]],
                     openid: openid
                 }
             });
