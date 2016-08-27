@@ -56,14 +56,15 @@
         }());
         (function () {
             $('.confirm-item').on('click', function(e){
-                var id = $(e.target).attr('order-id');
+                var target = e.target;
+                var id = $(target).attr('order-id');
                 if(id){
                     $.ajax({
                       type: 'GET',
                       url: 'http://www.hangeer1996.com/home/order/confirm?id='+id,
                       timeout: 300,
                       success: function(data){
-                         $(e.target).innerHTML = '已收货';
+                        target.innerHTML = '已收货';
                         alert('确认收货成功')
                       },
                       error: function(xhr, type){
