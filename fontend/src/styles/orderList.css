@@ -10,9 +10,15 @@ body {
   color: #fff;
   position: relative;
 }
-#top a {
+#top .choose-all {
   position: absolute;
   left: 0.390625rem;
+  color: #fff;
+  font-size: 0.46875rem;
+}
+#top .delete-item {
+  position: absolute;
+  right: 0.390625rem;
   color: #fff;
   font-size: 0.46875rem;
 }
@@ -91,6 +97,7 @@ body {
   width: 2.28125rem;
   height: 0.8125rem;
   border: 2px solid #ccac86;
+  margin-left: 7.03125rem;
   border-radius: 5px;
   font-size: 0.390625rem;
   color: #ccac86;

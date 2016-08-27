@@ -54,6 +54,27 @@ export default class extends Base {
         }
 
     }
+    async deleteOrderAction () {
+        let orderList = this.post('order_list').split('|');
+
+        let userInf = await this,
+            openid = 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4';
+
+        try {
+            await this.model('order')
+            .where({
+                openid: openid,
+                id: ['IN', orderList]
+            })
+            .delete();
+
+            return this.success();
+        } catch (e) {
+            return this.fail();
+        }
+        
+
+    }
 
     async payAction () {
 
@@ -112,6 +133,7 @@ export default class extends Base {
 
         let userInf = await this.checkUserInf(),
             openid = userInf.openid;
+        
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
                 where: {
@@ -130,6 +152,7 @@ export default class extends Base {
 
         let userInf = await this.checkUserInf(),
             openid = userInf.openid;
+
         let orderModel = this.model('order'),
             result = await orderModel.getOrderInf({
                 where: {

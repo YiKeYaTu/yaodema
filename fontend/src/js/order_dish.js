@@ -125,6 +125,25 @@ let orderKeeper = (function () {
 
 }());
 
+;(function () {
+
+    $('.delete-item')
+        .on('click', (e) => {
+
+            e.preventDefault();
+            $.post('/home/order/delete_order', {order_list: orderKeeper.toReq()}, (res) => {
+                if (res.errno === 0) {
+                    alert('删除成功');
+                    window.location.reload();
+                } else {
+                    alert('删除失败，请稍后再试');
+                }
+            });
+
+        });
+
+}());
+
 (function () {
 
     $('.kouwei-con').on('click', function(e){
@@ -190,6 +209,7 @@ let orderKeeper = (function () {
 
     });
 }());
+
 
 
 
