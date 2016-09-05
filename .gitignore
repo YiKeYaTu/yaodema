@@ -1,4 +1,4 @@
- Logs
+# Logs
 logs
 *.log
 
@@ -22,6 +22,7 @@ coverage/
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules/
+
 # IDE config
 .idea
 
@@ -31,8 +32,7 @@ output.tar.gz
 
 app/
 
-.DS_Store
-
-config/
-
 runtime/
+
+*db.js
+*.DS_Store
