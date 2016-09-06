@@ -9,6 +9,9 @@
       vertical-align: middle;
       float: none;
     }
+    .border{
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -38,20 +41,55 @@
       <form style="display: none; text-align:center">
         <fieldset>
           <legend>表单项</legend>
-          <label>表签名</label>
-          <input type="text" />
-          <label>表签名</label>
-          <input type="text" />
-          <label>表签名</label>
-          <input type="text" />
-          <label>表签名</label>
-          <input type="text" />
-          <label>表签名</label>
-          <input type="text" />
-          <label>表签名</label>
-          <input type="text" />
+          <label>货物名称</label>
+          <input type="text" id="goodsname"/>
+          <label>货物详情</label>
+          <input type="text" id="gooddetail"/>
           <label class="checkbox">
-          <button type="submit" class="btn">提交</button>
+          <div class="detail">
+          <div class="border">
+            <form class="form-horizontal">
+              <div class="control-group">
+              <label class="control-label" for="inputEmail">口味</label>
+              <div class="controls">
+              <input id="inputEmail" type="text" />
+              </div>
+              </div>
+              <div class="control-group">
+              <label class="control-label" for="inputEmail">价格</label>
+              <div class="controls">
+              <input id="inputEmail" type="text" />
+              </div>
+              </div>
+              <div class="control-group">
+              <label class="control-label" for="inputEmail">包装</label>
+              <div class="controls">
+              <input id="inputEmail" type="text" />
+              </div>
+              </div>
+              <div class="control-group">
+              <label class="control-label" for="inputEmail">内涵成分</label>
+              <div class="controls">
+              <input id="inputEmail" type="text" />
+              </div>
+              </div>
+              <div class="control-group">
+              <label class="control-label" for="inputEmail">描述</label>
+              <div class="controls">
+              <input id="inputEmail" type="text" />
+              </div>
+              </div>
+              <div class="control-group">
+              <label class="control-label" for="inputEmail">存货</label>
+              <div class="controls">
+              <input id="inputEmail" type="text" />
+              </div>
+              </div>
+            </form>
+          </div>
+          </div>
+          <button class="btn btn-success" id="add">添加口味</button>
+          <button type="submit" class="btn" id="submit">提交</button>
         </fieldset>
       </form>
       <table class="table">
@@ -239,7 +277,61 @@
     $('table').css({display: 'none'});
     $('form').css({display: 'block'});
   })
+  $('#add').on('click', function(e){
+    $(
+              '<div class="detail">'+
+              '<div class="border">'+
+              '<div class="control-group">'+
+              '<label class="control-label" for="taste">口味</label>'+
+              '<div class="controls">'+
+              '<input id="taste" type="text" />'+
+              '</div>'+
+              '</div>'+
+              '<div class="control-group">'+
+              '<label class="control-label" for="prize">价格</label>'+
+              '<div class="controls">'+
+              '<input id="prize" type="text" />'+
+              '</div>'+
+              '</div>'+
+              '<div class="control-group">'+
+              '<label class="control-label" for="box">包装</label>'+
+              '<div class="controls">'+
+              '<input id="box" type="text" />'+
+              '</div>'+
+              '</div>'+
+              '<div class="control-group">'+
+              '<label class="control-label" for="components">内涵成分</label>'+
+              '<div class="controls">'+
+              '<input id="conponents" type="text" />'+
+              '</div>'+
+              '</div>'+
+              '<div class="control-group">'+
+              '<label class="control-label" for="descript">描述</label>'+
+              '<div class="controls">'+
+              '<input id="discript" type="text" />'+
+              '</div>'+
+              '</div>'+
+              '<div class="control-group">'+
+              '<label class="control-label" for="stock">存货</label>'+
+              '<div class="controls">'+
+              '<input id="stock" type="text" />'+
+              '</div>'+
+              '</div>'+
+              '</div>'+
+              '</div>'
+    ).appendTo($('.detail')[0])
+  })
 }()
+  !function(){
+    $('#submit').on('click',function(){
+      var data = {};
+      data.goodsName = $('#goodsname').val();
+      data.goodDetail = $('#gooddetail').val();
+      $('.detail').map(function(item, i){
+        data[i].taste = $(item)
+      })
+    })
+  }()
 </script>
 </body>
 </html>
