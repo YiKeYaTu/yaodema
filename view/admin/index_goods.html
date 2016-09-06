@@ -328,8 +328,14 @@
       data.goodsName = $('#goodsname').val();
       data.goodDetail = $('#gooddetail').val();
       $('.detail').map(function(item, i){
-        data[i].taste = $(item)
+        data[i].taste = $(item).children('#taste');
+        data[i].prize = $(item).children('#prize');
+        data[i].box = $(item).children('#box');
+        data[i].components = $(item).children('#components');
+        data[i].descript = $(item).children('#descript');
+        data[i].stock = $(item).children('#stock');
       })
+      console.log(data);
     })
   }()
 </script>
