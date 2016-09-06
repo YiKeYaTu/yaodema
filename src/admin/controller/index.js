@@ -6,6 +6,8 @@ export default class extends Base {
 
     async indexAction(){
 
+        let orderModel = this.model('order');
+
         return this.display('goods');
     
     }
@@ -44,7 +46,11 @@ export default class extends Base {
                 return this.fail(10002);
         }
     }
-
+    /*
+    *
+    *商品相关的操作
+    *
+    */
     async goodsAction () {
 
         let type = this.post('type'),
