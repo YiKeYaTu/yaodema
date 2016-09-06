@@ -4,20 +4,27 @@ import Base from './base.js';
 
 export default class extends Base {
 
-    async indexAction(){
+    async indexAction () {
+
+        
+
+        return this.display();
+    
+    }
+
+    async goodsHtmlAction () {
 
         let orderModel = this.model('order');
 
         let orderList = await orderModel
             .order('od_state ASC')
             .select();
-            
+        console.log(orderList);
         this.assign({
             orderList
         });
 
         return this.display('goods');
-    
     }
     /*
     *
