@@ -17,6 +17,11 @@ export default class extends think.model.relation {
                 fKey: 'id'
 
             },
+            adress: {
+                type: think.model.HAS_ONE,
+                key: 'od_adress_id',
+                fKey: 'id'
+            }
         };
     }
 
