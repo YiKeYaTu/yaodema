@@ -16,10 +16,12 @@ export default class extends Base {
 
     async addOrderAction () {
 
+        let isOffline = this.post('is_offline');
+
         let goodsId = this.post('goods_id'),
             odNum = parseInt(this.post('od_num')),
             orderNo = produceOutTradeNo(),
-            userInf = await this.checkUserInf()/*{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'}*/;
+            userInf = isOffline ? 'offline' : await this.checkUserInf()/*{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'}*/;
 
         if (!userInf.openid) return this.fail(10001);
 
