@@ -19,7 +19,7 @@ export default class extends Base {
         let orderList = await orderModel
             .order('od_state ASC')
             .select();
-            
+        console.log(orderList);
         this.assign({
             orderList
         });
