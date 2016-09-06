@@ -16,10 +16,12 @@ export default class extends Base {
 
     async addOrderAction () {
 
+        let isOffline = this.post('is_offline');
+
         let goodsId = this.post('goods_id'),
             odNum = parseInt(this.post('od_num')),
             orderNo = produceOutTradeNo(),
-            userInf = await this.checkUserInf()/*{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'}*/;
+            userInf = isOffline ? 'offline' : await this.checkUserInf()/*{openid: 'oDNUjwV7l6KYEaEaBlWWSSn4Nel4'}*/;
 
         if (!userInf.openid) return this.fail(10001);
 
@@ -162,29 +164,19 @@ export default class extends Base {
                 order: "id DESC"
             });
 
-        if(this.get('item_id')){
+        if (this.get('item_id')) {
             result['addGooddetail'] = await this
-
-                                .model('gooddetail')
-
-                                .where({'g_id': this.get('item_id')})
-
-                                .select();
+                    .model('gooddetail')
+                    .where({'g_id': this.get('item_id')})
+                    .select();
 
             result['addGood'] = await this
-
-                                .model('goods')
-
-                                .where({'id': this.get('item_id')})     
-
-                                .select();            
+                    .model('goods')
+                    .where({'id': this.get('item_id')})     
+                    .select();            
         }
 
         this.assign('orderInf', result);
-
-        // console.log(result['addGooddetail']);
-        // console.log(result['addGood']);
-
         return this.display();
 
     }
@@ -278,11 +270,8 @@ export default class extends Base {
 
         if (wxRexJson.xml.sign[0] === sign) {
             let orderModel = this.model('order');
-            console.log(wxRexJson)
             let outRradeNo = wxRexJson.xml.out_trade_no[0];
-            console.log(await orderModel.where({
-                od_ticket_all: outRradeNo
-            }));
+            
             await orderModel.where({
                 od_ticket_all: outRradeNo
             }).update({

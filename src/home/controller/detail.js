@@ -19,8 +19,6 @@ export default class extends Base {
             id: itemId
         }).find();
 
-        console.log(result);
-
         this.assign('itemInf', result);
 
         return this.display();
