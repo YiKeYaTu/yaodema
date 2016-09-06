@@ -11,10 +11,6 @@ export default class extends Base {
 
         await this.checkUserInf();
 
-        // let wxService = think.service("wx");
-        // let wx = new wxService();
-
-        // await wx.createMenu();
         let config = {};
         let goods = this.model('goods');
 
@@ -31,21 +27,6 @@ export default class extends Base {
      * [getTopCover description]
      * 获取最热门商品前五的封面图片
      */
-
-    async testxmlAction () {
-
-        let payService = think.service("wx_pay");
-        let pay = new payService();
-
-        await pay.uniformOrder({});
-
-    }
-
-    async postAction () {
-        let data = await this.http.getPayload();
-        console.log(data);
-    }
-
     async getnewgoodsAction(){
         let length = this.get('get_num') || 0;
         let time = this.get('page_num') || 0;

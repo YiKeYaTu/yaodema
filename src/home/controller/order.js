@@ -162,29 +162,19 @@ export default class extends Base {
                 order: "id DESC"
             });
 
-        if(this.get('item_id')){
+        if (this.get('item_id')) {
             result['addGooddetail'] = await this
-
-                                .model('gooddetail')
-
-                                .where({'g_id': this.get('item_id')})
-
-                                .select();
+                    .model('gooddetail')
+                    .where({'g_id': this.get('item_id')})
+                    .select();
 
             result['addGood'] = await this
-
-                                .model('goods')
-
-                                .where({'id': this.get('item_id')})     
-
-                                .select();            
+                    .model('goods')
+                    .where({'id': this.get('item_id')})     
+                    .select();            
         }
 
         this.assign('orderInf', result);
-
-        // console.log(result['addGooddetail']);
-        // console.log(result['addGood']);
-
         return this.display();
 
     }
@@ -278,11 +268,8 @@ export default class extends Base {
 
         if (wxRexJson.xml.sign[0] === sign) {
             let orderModel = this.model('order');
-            console.log(wxRexJson)
             let outRradeNo = wxRexJson.xml.out_trade_no[0];
-            console.log(await orderModel.where({
-                od_ticket_all: outRradeNo
-            }));
+            
             await orderModel.where({
                 od_ticket_all: outRradeNo
             }).update({

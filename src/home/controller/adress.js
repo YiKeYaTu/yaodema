@@ -25,7 +25,6 @@ export default class extends Base {
             return this.fail(10001)
 
         }
-        console.log(userInf);
 
         let adressModel = this.model('adress');
 
@@ -77,7 +76,6 @@ export default class extends Base {
         let data = this.model('adress').getAdress(userInf.openid);
 
         let id = this.get('id');
-        console.log('我擦你嘛' + this.get('order_id'));
 
         await this.model('adress').setDefault(id, userInf.openid);  //  这里应该传用户openid
 
