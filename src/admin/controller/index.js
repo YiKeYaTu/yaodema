@@ -8,6 +8,14 @@ export default class extends Base {
 
         let orderModel = this.model('order');
 
+        let orderList = await orderModel
+            .order('od_state ASC')
+            .select();
+            
+        this.assign({
+            orderList
+        });
+
         return this.display('goods');
     
     }
@@ -20,11 +28,10 @@ export default class extends Base {
         let type = this.post('type');
 
         let odModel = this.model('order');
-
+        let odId = this.post('od_id');
         switch (type) {
             case 'change_od_state':
-                let odId = this.post('od_id'),
-                    odState = this.post('od_state');
+                let odState = this.post('od_state');
 
                 await odModel.where({
                     id: odId
@@ -34,7 +41,6 @@ export default class extends Base {
 
                 return this.success();
             case 'delete_od':
-                let odId = this.post('od_id');
 
                 await odModel.where({
                     id: odId
@@ -70,7 +76,7 @@ export default class extends Base {
                     g_time: think.datetime(),
                 });
 
-                inf.goodsdetail.forEach((item) => {
+                inf.goodsdetail.forEach(async (item) => {
                     await goodsDetailModel.add({
                         g_id: gId,
                         del_taste: item.del_taste,
