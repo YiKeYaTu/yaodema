@@ -6,8 +6,6 @@ export default class extends Base {
 
     async indexAction () {
 
-        
-
         return this.display();
     
     }
@@ -16,12 +14,28 @@ export default class extends Base {
 
         let orderModel = this.model('order');
 
+        let search = this.get('search');
+
+        // if (search)
+
         let orderList = await orderModel
             .order('od_state ASC')
             .select();
-        console.log(orderList);
+
+        let odState = [{
+            color: 'danger',
+            state: '未付款'
+        }, {
+            color: 'info',
+            state: '已付款'
+        }, {
+            color: 'success',
+            state: '已收货'
+        }];
+
         this.assign({
-            orderList
+            orderList,
+            odState
         });
 
         return this.display('goods');
@@ -66,7 +80,7 @@ export default class extends Base {
     */
     async goodsAction () {
 
-        let type = this.post('type'),
+        let type = this.get('type'),
             goodsModel = this.model('goods'),
             goodsDetailModel = this.model('gooddetail');
 

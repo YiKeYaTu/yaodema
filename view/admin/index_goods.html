@@ -96,7 +96,7 @@
         <thead>
           <tr>
             <th>
-              电话
+              订单号
             </th>
             <th>
               口味
@@ -110,13 +110,16 @@
             <th>
               地址
             </th> 
+            <th>
+              电话
+            </th>
           </tr>
         </thead>
         <tbody>
         <% orderList.forEach(function (item) { %>
-          <tr>
+          <tr class="<%= odState[item.od_state].color %>">
             <td>
-              <%= item.adress.user_call %>
+              <%= item.od_ticket_all || item.od_ticket %>
             </td>
             <td>
               <%= item.gooddetail.del_taste %>
@@ -125,7 +128,7 @@
               <%= item.od_num %>
             </td>
             <td class="dropdown pull-right">
-             <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
+             <a href="#" data-toggle="dropdown" class="dropdown-toggle"><%= odState[item.od_state].state %><strong class="caret"></strong></a>
             <ul class="dropdown-menu">
               <li>
                 <a href="#">设置已付款</a>
@@ -141,7 +144,10 @@
               <%= item.adress.ad_detail %>
             </td>
             <td>
-              <button class="btn btn-info  ">删除</button>
+              <%= item.adress.user_call %>
+            </td>
+            <td>
+              <button class="btn btn-info  " data-order-id="<%= item.id %>">删除</button>
             </td>
 
           </tr>
