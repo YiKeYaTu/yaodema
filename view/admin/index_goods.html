@@ -50,39 +50,39 @@
           <div class="border">
             <form class="form-horizontal">
               <div class="control-group">
-              <label class="control-label" for="inputEmail">口味</label>
+              <label class="control-label" for="taste">口味</label>
               <div class="controls">
-              <input id="inputEmail" type="text" />
+              <input id="taste" type="text" />
               </div>
               </div>
               <div class="control-group">
-              <label class="control-label" for="inputEmail">价格</label>
+              <label class="control-label" for="prize">价格</label>
               <div class="controls">
-              <input id="inputEmail" type="text" />
+              <input id="prize" type="text" />
               </div>
               </div>
               <div class="control-group">
-              <label class="control-label" for="inputEmail">包装</label>
+              <label class="control-label" for="box">包装</label>
               <div class="controls">
-              <input id="inputEmail" type="text" />
+              <input id="box" type="text" />
               </div>
               </div>
               <div class="control-group">
-              <label class="control-label" for="inputEmail">内涵成分</label>
+              <label class="control-label" for="components">内涵成分</label>
               <div class="controls">
-              <input id="inputEmail" type="text" />
+              <input id="components" type="text" />
               </div>
               </div>
               <div class="control-group">
-              <label class="control-label" for="inputEmail">描述</label>
+              <label class="control-label" for="descript">描述</label>
               <div class="controls">
-              <input id="inputEmail" type="text" />
+              <input id="descript" type="text" />
               </div>
               </div>
               <div class="control-group">
-              <label class="control-label" for="inputEmail">存货</label>
+              <label class="control-label" for="stock">存货</label>
               <div class="controls">
-              <input id="inputEmail" type="text" />
+              <input id="stock" type="text" />
               </div>
               </div>
             </form>
@@ -215,9 +215,16 @@
       var data = {};
       data.goodsName = $('#goodsname').val();
       data.goodDetail = $('#gooddetail').val();
-      $('.detail').map(function(item, i){
-        data[i].taste = $(item)
+      $('.detail').map(function(i, item){
+        console.log($(item).children())
+        data[i].taste = $(item).children('#taste').val();
+        data[i].prize = $(item).children('#prize').val();
+        data[i].box = $(item).children('#box').val();
+        data[i].components = $(item).children('#components').val();
+        data[i].descript = $(item).children('#descript').val();
+        data[i].stock = $(item).children('#stock').val();
       })
+      console.log(data);
     })
   }()
 </script>
