@@ -37,6 +37,9 @@
         <li>
           <a href="#" class="hehe">添加货物</a>
         </li>
+        <li>
+          <a href="#" class="add-order">添加订单</a>
+        </li>
       </ul>
       <form style="display: none; text-align:center">
         <fieldset>
@@ -147,7 +150,7 @@
               <%= item.adress.user_call %>
             </td>
             <td>
-              <button class="btn btn-info  " data-order-id="<%= item.id %>">删除</button>
+              <button class="btn btn-info" data-order-id="<%= item.id %>">删除</button>
             </td>
 
           </tr>
@@ -226,6 +229,21 @@
       })
       console.log(data);
     })
+
+    $('.btn-info').on('click', function () {
+      var target = this;
+      var orderId = $(target).attr('data-order-id');
+      $.post('./order', {
+        type: 'delete_od',
+        od_id: orderId
+      }, function (res) {
+        if (res.errno === 0) {
+          alert('删除成功');
+          target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
+        }
+      })
+    });
+
   }()
 </script>
 </body>
