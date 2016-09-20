@@ -17,7 +17,7 @@ var reload = browserSync.reload;
 var files = {
     source: './src/**/*.*',
     product: './dist/**/*.*',
-    base: "./dist",
+    base: "../",
     src: {
         html: './src/html/*.html',
         js: './src/js/*.js',

@@ -4,156 +4,169 @@
     <meta charset="utf-8">
     <script src="/static/js/flex.js"></script>
     <title>大重庆</title>
-    <link rel="stylesheet" type="text/css" href="/static/styles/index.css?time=<%= new Date().getTime() %>">
+    <link rel="stylesheet" type="text/css" href="/static/styles/index.css">
 </head>
 <body>
-    <div class="add-to-car">
-        <span class='car-num'>0</span>
-    </div>
     <header>
-        <section class="swiper-container">
+        <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background: url(/static/imgs/covers/21.jpg) no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
-                <div class="swiper-slide" style="background: url(/static/imgs/covers/22.jpg) no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
-                <div class="swiper-slide" style="background: url(/static/imgs/covers/23.jpg)  no-repeat center center; background-color: #f0efef; background-size: contain;"></div>
+                <% for (var i = 0; i < 4; i++) { %>
+                    <div class="swiper-slide"></div>
+                <% } %>
             </div>
-        </section>
-        <section class='banner-bottom'></section>
+        </div>
+        <section class="slider-bottom"></section>
     </header>
-    <section class='hot-item-inf'>
-    <%data.goodsType.forEach(function(item, index){%>
-        <%if(index%3 == 0){%>
-        <div style="margin-left: 0;" class="hot-item-inf-item"><%=item.gt_name%></div>
-        <%}else{%>
-        <div class="hot-item-inf-item"><%=item.gt_name%></div>
-        <%}%>
-    <%})%>
-    </section>
-    <section class='line'></section>
-    <section class='item-outer'>
-        <section class='item-title'>
-            <p class='item-title-container'>最热商品</p>
-        </section>
-        <section class='item-container'>
-            <div class="item-el">
-                <a href="/home/detail/index?item_id=<%= data.hotGoods[0].goodsId%>">
-                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.hotGoods[0].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain">
-                    </div>
-                </a>
-                <div class="item-inf">
-                    <%= data.hotGoods[0].descript%>
-                </div>
-                <div class="buy-item">
-                    <div class="item-price">
-                    <span class='item-price-icon'>￥</span>
-                    <span class='item-price-content'><%= data.hotGoods[0].prize%></span>
-                    <img class='buy-button' src='/static/imgs/buy_car_b.png' data-itemId="<%= data.hotGoods[0].goodsId%>">
-                    </div>
-                </div>
+    <section class="hot-item-title-container">
+        <h1 class="title">
+            <p class="title-chinese">經典熱賣</p>
+            <p class="title-english">HOT PRODUCTS</p>
+        </h1>
+        <section class="hot-item-box">
+            <% for (var i = 0; i < 4; i++) { %>
+            <div class="hot-item-el" style="margin-right: <%= i == 3 ? '0' : '' %>">
+                <div class="hot-item-bg"></div>
+                <h2 class="hot-item-title">
+                    <p class="hot-item-title-chinese">
+                        火鍋底料
+                    </p>
+                    <p class="hot-item-title-english">
+                        HOTPOT CONDIMENT
+                    </p>
+                </h2>
             </div>
-            <div class="item-el">
-                <a href="/home/detail/index?item_id=<%= data.hotGoods[1].goodsId%>">
-                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.hotGoods[1].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain">
+            <% } %>
+        </section>
+        <section class="container">
+            <section class="hot-inf">
+                <div class="hot-item-container row-container-left">
+                    <div class="hot-item-container-prize">
+                        <p class="hot-item-container-prize-name">底料</p>
+                        <p class="hot-item-container-prize-content">
+                            <span class="prize-icon">￥</span>
+                            <span class="prize-text">8.8</span>
+                        </p>
                     </div>
-                </a>
-                <div class="item-inf">
-                    <%= data.hotGoods[1].descript%>
+                    <div class="hot-item-container-img"></div>
                 </div>
-                <div class="buy-item">
-                    <div class="item-price">
-                    <span class='item-price-icon'>￥</span>
-                    <span class='item-price-content'><%= data.hotGoods[1].prize%></span>
-                    <img class='buy-button' src='/static/imgs/buy_car_b.png' data-itemId="<%= data.hotGoods[1].goodsId%>">
+                <div class="hot-item-row-inf row-inf-righ">
+                    <p class="hot-item-row-inf-p">
+                        <span>火鍋</span>
+                        <span class="chongqin">CHONGQIN</span>
+                        <span>底料</span>
+                    </p>
+                    <img class="hot-item-row-inf-img" src="/static/imgs/lajiao.png" alt="">
+                    <div class="user-section">
+                        <p class="view-more">
+                            <span>TO</span>
+                            <span>VIEW MORE</span>
+                            <span class="more-button">查看更多</span>
+                        </p>
+                        <img class="buy-car" src="/static/imgs/buy_car.png" alt="">
                     </div>
+                    <p class="item-trd">
+                        美味，源自对传统的敬畏。传统腊肠味，重庆告诉你... ...
+                    </p>
                 </div>
-            </div>
+            </section>
+            <section class="hot-inf hot-inf-ou" >
+                <div class="hot-item-container row-container-right">
+                    <div class="hot-item-container-prize">
+                        <p class="hot-item-container-prize-name">底料</p>
+                        <p class="hot-item-container-prize-content">
+                            <span class="prize-icon">￥</span>
+                            <span class="prize-text">8.8</span>
+                        </p>
+                    </div>
+                    <div class="hot-item-container-img"></div>
+                </div>
+                <div class="hot-item-row-inf row-inf-left">
+                    <p class="hot-item-row-inf-p">
+                        <span>火鍋</span>
+                        <span class="chongqin">CHONGQIN</span>
+                        <span>底料</span>
+                    </p>
+                    <img class="hot-item-row-inf-img" src="/static/imgs/lajiao.png" alt="">
+                    <div class="user-section">
+                        <p class="view-more">
+                            <span>TO</span>
+                            <span>VIEW MORE</span>
+                            <span class="more-button">查看更多</span>
+                        </p>
+                        <img class="buy-car" src="/static/imgs/buy_car.png" alt="">
+                    </div>
+                    <p class="item-trd">
+                        美味，源自对传统的敬畏。传统腊肠味，重庆告诉你... ...
+                    </p>
+                </div>
+            </section>
+            <section class="hot-inf">
+                <div class="hot-item-container row-container-left row-container-bottom">
+                    <div class="hot-item-container-prize">
+                        <p class="hot-item-container-prize-name">底料</p>
+                        <p class="hot-item-container-prize-content">
+                            <span class="prize-icon">￥</span>
+                            <span class="prize-text">8.8</span>
+                        </p>
+                    </div>
+                    <div class="hot-item-container-img"></div>
+                </div>
+                <div class="hot-item-row-inf row-inf-righ">
+                    <p class="hot-item-row-inf-p">
+                        <span>火鍋</span>
+                        <span class="chongqin">CHONGQIN</span>
+                        <span>底料</span>
+                    </p>
+                    <img class="hot-item-row-inf-img" src="/static/imgs/lajiao.png" alt="">
+                    <div class="user-section">
+                        <p class="view-more">
+                            <span>TO</span>
+                            <span>VIEW MORE</span>
+                            <span class="more-button">查看更多</span>
+                        </p>
+                        <img class="buy-car" src="/static/imgs/buy_car.png" alt="">
+                    </div>
+                    <p class="item-trd">
+                        美味，源自对传统的敬畏。传统腊肠味，重庆告诉你... ...
+                    </p>
+                </div>
+            </section>
+            <section class="hot-inf hot-inf-ou">
+                <div class="hot-item-container row-container-right row-container-bottom">
+                    <div class="hot-item-container-prize">
+                        <p class="hot-item-container-prize-name">底料</p>
+                        <p class="hot-item-container-prize-content">
+                            <span class="prize-icon">￥</span>
+                            <span class="prize-text">8.8</span>
+                        </p>
+                    </div>
+                    <div class="hot-item-container-img"></div>
+                </div>
+                <div class="hot-item-row-inf row-inf-left">
+                    <p class="hot-item-row-inf-p">
+                        <span>火鍋</span>
+                        <span class="chongqin">CHONGQIN</span>
+                        <span>底料</span>
+                    </p>
+                    <img class="hot-item-row-inf-img" src="/static/imgs/lajiao.png" alt="">
+                    <div class="user-section">
+                        <p class="view-more">
+                            <span>TO</span>
+                            <span>VIEW MORE</span>
+                            <span class="more-button">查看更多</span>
+                        </p>
+                        <img class="buy-car" src="/static/imgs/buy_car.png" alt="">
+                    </div>
+                    <p class="item-trd">
+                        美味，源自对传统的敬畏。传统腊肠味，重庆告诉你... ...
+                    </p>
+                </div>
+            </section>
+            
         </section>
     </section>
-    <section class='item-outer'>
-        <section class='item-title'>
-            <p class='item-title-container'>最新商品</p>
-        </section>
-        <section class='item-container'>
-            <div class="item-el">
-                <a href="/home/detail/index?item_id=<%= data.newGoods[0].goodsId%>">
-                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[0].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain">
-                    </div>
-                </a>
-                <div class="item-inf">
-                    <%= data.newGoods[0].descript%>
-                </div>
-                <div class="buy-item">
-                    <div class="item-price">
-                    <span class='item-price-icon'>￥</span>
-                    <span class='item-price-content'><%= data.newGoods[0].prize%></span>
-                    <img class='buy-button' src='/static/imgs/buy_car_b.png' data-itemId="<%= data.newGoods[0].goodsId%>">
-                    </div>
-                </div>
-            </div>
-            <div class="item-el">
-                <a href="/home/detail/index?item_id=<%= data.newGoods[1].goodsId%>">
-                    <div class="item-image" style="background:url(/static/imgs/covers/<%= data.newGoods[1].cover%>) no-repeat center center; background-color: #f0efef; background-size:contain">
-                    </div>
-                </a>
-                <div class="item-inf">
-                    <%= data.newGoods[1].descript%>
-                </div>
-                <div class="buy-item">
-                    <div class="item-price">
-                    <span class='item-price-icon'>￥</span>
-                    <span class='item-price-content'><%= data.newGoods[1].prize%></span>
-                    <img class='buy-button' src='/static/imgs/buy_car_b.png' data-itemId="<%= data.newGoods[1].goodsId%>">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-    <section class='item-outer' id='all-item-outer'>
-        <section class='item-title'>
-            <p class='item-title-container'>全部商品</p>
-        </section>
-        <section class='item-container'>
-        </section>
-    </section>
-    <section class='loading'>
-        <img class='loading-icon' src="/static/imgs/loading.png">
-        <span class="loading-msg">正在加载内容...</span>
-    </section>
-    <script src='/static/js/zepto.min.js'></script>
-    <script src='/static/js/swiper-3.3.1.jquery.min.js'></script>
-    <script src='/static/js/index_index.js?timer=<%= new Date().getTime()%>'+></script>
-    <script>
-        ;(function () {
-            var list = $('.swiper-slide');
-            list.each(function(index, item){
-                $(item).css('left', index * 100 + '%');
-            });
-        }());
-        ;(function(){
-            $('.add-to-car').on('click', function(){
-                window.location.href = "/home/order/dish";
-            })
-        }());
-        ;(function(){
-            $( $('.hot-item-inf-item')[0] ).on('click', function(){
-                window.location.href = "http://www.hangeer1996.com/home/detail/index?item_id=2";
-            })
-            $( $('.hot-item-inf-item')[1] ).on('click', function(){
-                window.location.href = "http://www.hangeer1996.com/home/detail/index?item_id=6";
-            })
-            $( $('.hot-item-inf-item')[2] ).on('click', function(){
-                window.location.href = "http://www.hangeer1996.com/home/detail/index?item_id=1";
-            })
-            $( $('.hot-item-inf-item')[3] ).on('click', function(){
-                window.location.href = "http://www.hangeer1996.com/home/detail/index?item_id=11";
-            })
-            $( $('.hot-item-inf-item')[4] ).on('click', function(){
-                window.location.href = "http://www.hangeer1996.com/home/detail/index?item_id=7";
-            })
-            $( $('.hot-item-inf-item')[5] ).on('click', function(){
-                window.location.href = "http://www.hangeer1996.com/home/detail/index?item_id=13";
-            })
-        }());
-    </script>
+    <script src="/static/js/zepto.min.js"></script>
+    <script src="/static/js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="/static/js/index_index.js"></script>
 </body>
 </html>

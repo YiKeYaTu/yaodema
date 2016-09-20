@@ -7,11 +7,21 @@
     const SPEED = 5000;
 
     let mySwiper = new Swiper('.swiper-container', {
-        pagination : '.banner-bottom',
+        pagination : '.slider-bottom',
         autoplay : SPEED,
         loop: true,
-        // loopedSlides: 0,
     });
+
+    $('.swiper-wrapper')
+        .children('*').each((index, item) => {
+            $(item).css('left', index * 10 + 'rem');
+    });
+
+    let swiperPaginationBullet = $('.swiper-pagination-bullet');
+
+    swiperPaginationBullet
+        .eq(0)
+        .css('margin-left', ( 10 - swiperPaginationBullet.length * 17 / 64) / 2 + 'rem');
 
 }());
 /*
